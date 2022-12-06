@@ -3,6 +3,25 @@ import styled from "styled-components";
 const ProductDescription = () => {
     const StyledProductDescitpion = styled.div`
         padding: 1.5rem;
+        .product-description__company-name {
+            font-size: .7rem;
+            font-weight: 700;
+            color: var(--orange);
+            letter-spacing: 1px;
+        }
+        .product-description__product {
+            font-size: 1.7rem;
+            font-weight: 700;
+            padding: 1rem 0;
+            line-height: 2rem;
+        }
+
+        .product-description__details {
+            
+            color: var(--black);
+            font-weight: 400;
+        }
+
     `
 
     return (
