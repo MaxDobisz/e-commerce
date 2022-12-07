@@ -2,24 +2,25 @@ import styled from "styled-components";
 
 const ProductDescription = () => {
     const StyledProductDescitpion = styled.div`
-        padding: 1.5rem;
+        margin: 1.5rem;
+
         .product-description__company-name {
-            font-size: .7rem;
+            font-size: .8rem;
             font-weight: 700;
             color: var(--orange);
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
+
         .product-description__product {
-            font-size: 1.7rem;
+            font-size: 1.8rem;
             font-weight: 700;
             padding: 1rem 0;
-            line-height: 2rem;
+            line-height: 1em;
         }
 
         .product-description__details {
-            
             color: var(--black);
-            font-weight: 400;
+            line-height: 1.5em;
         }
 
     `
