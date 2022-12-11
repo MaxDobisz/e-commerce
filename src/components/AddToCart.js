@@ -29,7 +29,29 @@ const AddToCart = () => {
             text-decoration: line-through;
             color: var(--grayish-blue);
             font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: -.3em;
+            text-decoration-skip-ink: none;
+           
         }
+            /* text-decoration-color: var(--grayish-blue);  */
+            /* text-decoration-thickness: 2px;
+            that was a small issue , ive tried line trough , before after border, but it wasnt good , also you cannot move line trough but you can move underline
+        }
+
+
+
+        /* .price__previous:before {
+            content: '';
+            width: 60px;
+            height: 30px;
+            position: absolute;
+            border-top: 2px solid black;
+            top: 12px; */
+            /* transform:rotate(-180deg); */
+            // i had problem with lower strike, couldnt move it so decided to add before element border and lower it a bit
+           
+        /* } */
 
         /* counter start */
         .add-to-cart__counter {
@@ -64,6 +86,7 @@ const AddToCart = () => {
             border-radius: 10px;
             box-shadow: 0 10px 10px var(--light-orange);
             width: 100%;
+            font-size: 1rem
         }
 
 

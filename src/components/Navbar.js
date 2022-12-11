@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from 'react';
 
-const menuElements = ['Collections', 'Men', 'Women', 'About', 'Contact'];
+
 
 const renderNavElements = (itemsArr) => {
     return itemsArr.map(item => <li>{item}</li>);
@@ -12,7 +12,7 @@ const StyledNavbar = styled.div`
     justify-content: space-between;
     padding: 1.5rem;
     
-    .shadow-layer {
+    /* .shadow-layer {
         background-color: black;
         opacity: 0.5;
         position: absolute;
@@ -22,7 +22,7 @@ const StyledNavbar = styled.div`
         height: 100vh;
         width: 100vw;
         display: none;
-    }
+    } */
 
     .wrapper {
         display: flex;
@@ -47,7 +47,6 @@ const StyledNavbar = styled.div`
         left: 0;
         background-color: white;
         height: 100%;
-        z-index: 3;
     }
 
     .navigation__list {
@@ -56,33 +55,39 @@ const StyledNavbar = styled.div`
         list-style-type: none;
     }
 `
-const Navbar = () => {
-    const [menuVisibility, setMenuVisibility] = useState(false);
+const Navbar = ({ setMenuActive, setOverlayActive }) => {
     const clickHandler = (e) => {
-        setMenuVisibility(true)
+        setMenuActive(true);
+        setOverlayActive(true);
     }
 
     return (
         <StyledNavbar className="navbar">
-            <div className="shadow-layer"></div>
             <div className="wrapper">
                 <button className="hamburger-button hamburger-button--closed" onClick={clickHandler}>
                     <img src="./../../../images/icon-menu.svg" alt="hamburger menu" />
                 </button>
-                {/* <button className="hamburger-button hamburger-button--open">
-                    <img src="./../../../images/icon-close.svg" alt="hamburger menu" />
-                </button> */}
+
                 <img src="./../../../images/logo.svg" alt="logo" width="138" height="20" />
             </div>
+            {/* {menuVisibility && (<nav className="navigation">
+                <ul className="navigation__list">
+                    {renderNavElements(menuElements)}
+                </ul>
+            </nav>
+            )} */}
+
+
+
+
             <div className="wrapper">
                 <img src="./../../../images/icon-cart.svg" alt="cart" width="22" height="20" />
                 <img src="./../../../images/image-avatar.png" alt="user avatar" width="22" height="22" />
             </div>
-            {menuVisibility && (<nav className="navigation">
-                <ul className="navigation__list">
-                    {renderNavElements(menuElements)}
-                </ul>
-            </nav>)}
+
+
+
+            <div className="shadow-layer"></div> 
         </StyledNavbar>
     )
 }
