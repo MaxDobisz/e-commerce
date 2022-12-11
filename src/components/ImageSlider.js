@@ -17,6 +17,14 @@ const StyledImageSlider = styled.div`
         top: calc(50% - 7px - .6em);
         position: absolute;
         cursor: pointer;
+
+        &--previous {
+            left: 0;
+        } 
+
+        &--next {
+            right: 0;
+        } 
     } 
 
     .arrow-image {
@@ -30,16 +38,6 @@ const StyledImageSlider = styled.div`
         &--next {
             left: .1em;
         }
-    }
-
-    
-
-    .arrow-button--previous {
-        left: 0;
-    }
-
-    .arrow-button--next {
-        right: 0;
     }
 `
 
@@ -70,21 +68,25 @@ const imagesData = [
 const ImageSlider = () => {
     const [currentImage, setCurrentImage] = useState(0);
 
+    const clickHandler = (e) => {
+        if (e.currentTarget.className.includes('previous') && currentImage !== 0) {
+            setCurrentImage(currentImage - 1);
+        } else if (e.currentTarget.className.includes('next') && imagesData.length !== currentImage + 1) {
+            setCurrentImage(currentImage + 1);
+        }
+    }
 
     return (
         <StyledImageSlider>
             <div className="picture-wrapper">
-                <button className="arrow-button arrow-button--previous">
+                <button className="arrow-button arrow-button--previous" onClick={clickHandler}>
                     <img className="arrow-image arrow-image--previous" src='./../../../images/icon-previous.svg' alt="white/brownish trainers" />
                 </button>
                 <img className="zdjecie" src={imagesData[currentImage].url} alt="white/brownish trainers" />
-                <button className="arrow-button arrow-button--next">
+                <button className="arrow-button arrow-button--next" onClick={clickHandler}>
                     <img className="arrow-image arrow-image--next" src='./../../../images/icon-next.svg' alt="white/brownish trainers" />
                 </button>
-
-                {/* <img className="arrow" src='./../../../images/icon-next.svg' alt="white/brownish trainers" /> */}
             </div>
-
         </StyledImageSlider>
     )
 }
