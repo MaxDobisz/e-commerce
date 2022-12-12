@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
-const ProductDescription = () => {
-    const StyledProductDescitpion = styled.div`
+const StyledProductDescitpion = styled.div`
         margin: 1.5rem;
 
         .product-description__company-name {
@@ -25,6 +24,7 @@ const ProductDescription = () => {
 
     `
 
+const ProductDescription = () => {
     return (
         <StyledProductDescitpion className="product-description">
             <h1 className="product-description__company-name">SNEAKER COMPANY</h1>

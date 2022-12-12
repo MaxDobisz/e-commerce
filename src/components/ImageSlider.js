@@ -2,8 +2,8 @@ import { useState } from "react";
 import styled from "styled-components";
 
 const StyledImageSlider = styled.div`
-    width: 100%;
-    height: 300px;
+    /* width: 100%;
+    height: 300px; */ // to nic nie zmienia raczej, wysokosc tylko koliduje z kolejnym komponentem
     
     .picture-wrapper {
         position: relative;

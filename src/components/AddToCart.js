@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import Counter from './Counter';
 
-const AddToCart = () => {
-    const StyledAddToCart = styled.div`
+const StyledAddToCart = styled.div`
         margin: 1.5rem;
 
         .add-to-cart__price-wrapper {
@@ -32,48 +32,6 @@ const AddToCart = () => {
             text-decoration: underline;
             text-underline-offset: -.3em;
             text-decoration-skip-ink: none;
-           
-        }
-            /* text-decoration-color: var(--grayish-blue);  */
-            /* text-decoration-thickness: 2px;
-            that was a small issue , ive tried line trough , before after border, but it wasnt good , also you cannot move line trough but you can move underline
-        }
-
-
-
-        /* .price__previous:before {
-            content: '';
-            width: 60px;
-            height: 30px;
-            position: absolute;
-            border-top: 2px solid black;
-            top: 12px; */
-            /* transform:rotate(-180deg); */
-            // i had problem with lower strike, couldnt move it so decided to add before element border and lower it a bit
-           
-        /* } */
-
-        /* counter start */
-        .add-to-cart__counter {
-            background-color: var(--light-grayish-blue);
-            border-radius: 10px;
-            display: flex;
-            justify-content: space-between;
-            margin: 1rem 0;
-        }
-
-        .counter__button {
-            
-            color: var(--orange);
-            font-weight: 700;
-            font-size: 1.3rem;
-            padding: 1rem;
-            align-items: center;
-        }
-
-        .counter__number {
-            font-weight: 700;
-            align-self: center;
         }
 
         .add-to-cart__button {
@@ -88,16 +46,9 @@ const AddToCart = () => {
             width: 100%;
             font-size: 1rem
         }
-
-
-
-
-
-
-
-
-
     `
+
+const AddToCart = () => {
     return (
         <StyledAddToCart>
             <div className="add-to-cart__price-wrapper">
@@ -105,11 +56,7 @@ const AddToCart = () => {
                 <p className="price__discount">50%</p>
                 <p className="price__previous">$250.00</p>
             </div>
-            <div className="add-to-cart__counter">
-                <button className="counter__button">-</button>
-                <p className="counter__number">0</p>
-                <button className="counter__button">+</button>
-            </div>
+            <Counter />
             <button className="add-to-cart__button">Add to cart</button>
         </StyledAddToCart>
     )

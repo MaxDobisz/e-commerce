@@ -1,9 +1,11 @@
 import { useState } from 'react';
-// import AddToCart from './components/AddToCart';
-// import Navbar from './components/Navbar';
+import AddToCart from './components/AddToCart';
+import Navbar from './components/Navbar';
 import PhotoSlider from './components/ImageSlider';
-// import ProductDescription from './components/ProductDescription';
-// import SliderMenu from './components/SliderMenu';
+import ProductDescription from './components/ProductDescription';
+import SliderMenu from './components/SliderMenu';
+import Counter from './components/Counter';
+import ShoppingCart from './components/ShoppingCart';
 
 
 function App() {
@@ -14,23 +16,7 @@ function App() {
 
   return (
     <>
-      <PhotoSlider />
-      {/* <Navbar
-        setMenuActive={setMenuActive}
-        setOverlayActive={setOverlayActive}
-      />
-      <SliderMenu
-        menuActive={menuActive}
-        setMenuActive={setMenuActive}
-        overlayActive={overlayActive}
-        setOverlayActive={setOverlayActive}
-        menuItems={menuItems}
-      /> */}
-
-
-      {/* <PhotoSlider />
-      <ProductDescription />
-      <AddToCart /> */}
+      <ShoppingCart />
     </>
   );
 }
