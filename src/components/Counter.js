@@ -8,20 +8,22 @@ const StyledCounter = styled.div`
             display: flex;
             justify-content: space-between;
             margin: 1rem 0;
+
+            &__button {
+                color: var(--orange);
+                font-weight: 700;
+                font-size: 1.3rem;
+                padding: 1rem;
+                align-items: center;
+            }
+
+            &__number {
+                font-weight: 700;
+                align-self: center;
+            }
         }
 
-        .counter__button {
-            color: var(--orange);
-            font-weight: 700;
-            font-size: 1.3rem;
-            padding: 1rem;
-            align-items: center;
-        }
-
-        .counter__number {
-            font-weight: 700;
-            align-self: center;
-        }
+        
     `
 
 const Counter = () => {

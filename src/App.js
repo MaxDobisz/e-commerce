@@ -7,16 +7,33 @@ import SliderMenu from './components/SliderMenu';
 import Counter from './components/Counter';
 import ShoppingCart from './components/ShoppingCart';
 
-
 function App() {
   const [menuActive, setMenuActive] = useState(false);
   const [overlayActive, setOverlayActive] = useState(false);
-
+  const [cartActive, setCartActive] = useState(false);
   const menuItems = ['Collections', 'Men', 'Women', 'About', 'Contact'];
 
   return (
     <>
-      <ShoppingCart />
+      <Navbar
+        setMenuActive={setMenuActive}
+        setOverlayActive={setOverlayActive}
+        cartActive={cartActive}
+        setCartActive={setCartActive}
+      />
+      <ShoppingCart isActive={cartActive} />
+      <PhotoSlider />
+      {/* <SliderMenu
+        menuActive={menuActive}
+        setMenuActive={setMenuActive}
+        overlayActive={overlayActive}
+        setOverlayActive={setOverlayActive}
+        menuItems={menuItems}
+      /> */}
+
+      {/* <PhotoSlider />
+      <ProductDescription />
+      <AddToCart />  */}
     </>
   );
 }

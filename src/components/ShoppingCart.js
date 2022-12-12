@@ -4,6 +4,10 @@ const StyledShoppingCart = styled.div`
     margin: .5rem;
     border-radius: 10px;
     box-shadow: 0 10px 50px;
+    position: absolute;
+    z-index: 2;
+    width: calc(100% - 1rem);
+    display: ${ props => props.isActive ? 'block' : 'none' };
 
     .shoppingCart {
         min-height: 200px;
@@ -29,9 +33,9 @@ const StyledShoppingCart = styled.div`
     }
 `
 
-const ShoppingCart = () => {
+const ShoppingCart = ({ isActive }) => {
     return (
-        <StyledShoppingCart>
+        <StyledShoppingCart isActive={isActive}>
             <div className="shoppingCart">
                 <p className="shoppingCart__title">Cart</p>
                 <div className="shoppingCart__list">
