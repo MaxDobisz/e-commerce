@@ -14,7 +14,7 @@ const StyledShoppingCart = styled.div`
         border-radius: 10px;
         display: flex;
         flex-direction: column;
-        background-color: pink;
+        background-color: white;
 
         &__title {
             border-bottom: 1px solid black;
@@ -33,14 +33,22 @@ const StyledShoppingCart = styled.div`
     }
 `
 
-const ShoppingCart = ({ isActive }) => {
+const ShoppingCart = ({ isActive, items }) => {
+    const renderCartItems = items => {
+        if (items.length === 0) {
+            return <li><p>Your cart is empty</p></li>
+        }
+
+        return items.map(item => <li>{item}</li>);
+    }
+
     return (
         <StyledShoppingCart isActive={isActive}>
             <div className="shoppingCart">
                 <p className="shoppingCart__title">Cart</p>
-                <div className="shoppingCart__list">
-                    <p className="list__empty">Your cart is empty</p>
-                </div>
+                <ul className="shoppingCart__list">
+                    {renderCartItems(items)}
+                </ul>
             </div>
         </StyledShoppingCart>
     )
