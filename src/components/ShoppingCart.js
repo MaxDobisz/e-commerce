@@ -1,4 +1,6 @@
+import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import useClickOutside from '../hooks/useClickOutside';
 
 const StyledShoppingCart = styled.div`
     margin: .5rem;
@@ -7,7 +9,6 @@ const StyledShoppingCart = styled.div`
     position: absolute;
     z-index: 2;
     width: calc(100% - 1rem);
-    display: ${ props => props.isActive ? 'block' : 'none' };
 
     .shoppingCart {
         min-height: 200px;
@@ -15,6 +16,7 @@ const StyledShoppingCart = styled.div`
         display: flex;
         flex-direction: column;
         background-color: white;
+        backdrop-filter: blur(1em) brightness(80%);
 
         &__title {
             border-bottom: 1px solid black;
@@ -33,18 +35,34 @@ const StyledShoppingCart = styled.div`
     }
 `
 
-const ShoppingCart = ({ isActive, items }) => {
+const ShoppingCart = ({ cartActive, setCartActive, items }) => {
     const renderCartItems = items => {
         if (items.length === 0) {
             return <li><p>Your cart is empty</p></li>
         }
-
         return items.map(item => <li>{item}</li>);
     }
 
+    const nodeRef = useClickOutside(setCartActive, 'cart')
+
+    // useEffect(() => {
+    //     const handler = (e) => {
+    //         if (!cartRef.current.contains(e.target) && !e.target.className.includes('cart')) {
+    //             setCartActive(false)
+    //         }
+    //     }
+
+    //     document.addEventListener('mousedown', handler);
+
+    //     return () => {
+    //         document.removeEventListener('mousedown', handler)
+    //     }
+    // })
+
+
     return (
-        <StyledShoppingCart isActive={isActive}>
-            <div className="shoppingCart">
+        <StyledShoppingCart>
+            <div className="shoppingCart" ref={nodeRef}>
                 <p className="shoppingCart__title">Cart</p>
                 <ul className="shoppingCart__list">
                     {renderCartItems(items)}

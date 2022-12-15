@@ -26,8 +26,8 @@ const StyledCounter = styled.div`
         
     `
 
-const Counter = () => {
-    const [counter, setCounter] = useState(0);
+const Counter = ({ counter, setCounter }) => {
+
     const clickHandler = (e) => {
         if (e.currentTarget.className.includes('minus') && counter !== 0) {
             setCounter(counter - 1)

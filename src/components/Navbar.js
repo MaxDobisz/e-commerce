@@ -45,7 +45,8 @@ const Navbar = ({ setMenuActive, setOverlayActive, cartActive, setCartActive }) 
     }
 
     const cartClickHandler = () => {
-        cartActive ? setCartActive(false) : setCartActive(true);
+        setCartActive(cartActive => !cartActive)
+        // cartActive ? setCartActive(false) : setCartActive(true);
     }
 
     const renderNavElements = (itemsArr) => {
@@ -72,7 +73,7 @@ const Navbar = ({ setMenuActive, setOverlayActive, cartActive, setCartActive }) 
 
             <div className="wrapper">
                 <button onClick={cartClickHandler}>
-                    <img src="./../../../images/icon-cart.svg" alt="cart" width="22" height="20" />
+                    <img src="./../../../images/icon-cart.svg" alt="cart" width="22" height="20" className="cart" />
                 </button>
                 <img src="./../../../images/image-avatar.png" alt="user avatar" width="22" height="22" />
             </div>

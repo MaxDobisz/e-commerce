@@ -48,7 +48,12 @@ const StyledAddToCart = styled.div`
         }
     `
 
-const AddToCart = () => {
+const AddToCart = ({ shoppingCartItems, setShoppingCartItems, counter, setCounter }) => {
+    const addToCartClickHandler = () => {
+        setShoppingCartItems([...shoppingCartItems, 'cosTam'])
+        setCounter(0);
+    }
+
     return (
         <StyledAddToCart>
             <div className="add-to-cart__price-wrapper">
@@ -56,8 +61,9 @@ const AddToCart = () => {
                 <p className="price__discount">50%</p>
                 <p className="price__previous">$250.00</p>
             </div>
-            <Counter />
-            <button className="add-to-cart__button">Add to cart</button>
+            <Counter counter={counter}
+                setCounter={setCounter} />
+            <button className="add-to-cart__button" onClick={addToCartClickHandler}>Add to cart</button>
         </StyledAddToCart>
     )
 }

@@ -11,8 +11,9 @@ function App() {
   const [menuActive, setMenuActive] = useState(false);
   const [overlayActive, setOverlayActive] = useState(false);
   const [cartActive, setCartActive] = useState(false);
-  const [shpoppingCartItems, setShoppingCartItems] = useState([]);
+  const [shoppingCartItems, setShoppingCartItems] = useState([]);
   const menuItems = ['Collections', 'Men', 'Women', 'About', 'Contact'];
+  const [counter, setCounter] = useState(0);
 
   return (
     <>
@@ -29,10 +30,19 @@ function App() {
         setOverlayActive={setOverlayActive}
         menuItems={menuItems}
       />
-      <ShoppingCart isActive={cartActive} items={shpoppingCartItems} />
+      {cartActive ? <ShoppingCart
+        cartActive={cartActive}
+        setCartActive={setCartActive}
+        items={shoppingCartItems}
+      /> : null}
       <PhotoSlider />
       <ProductDescription />
-      <AddToCart /> 
+      <AddToCart
+        shoppingCartItems={shoppingCartItems}
+        setShoppingCartItems={setShoppingCartItems}
+        counter={counter}
+        setCounter={setCounter}
+      /> 
     </>
   );
 }
