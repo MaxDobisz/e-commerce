@@ -68,7 +68,15 @@ const StyledShoppingCart = styled.div`
             justify-content: space-between;
             
         }
+        
+        .price-wrapper {
+            display: flex;
+            gap: .5em;
+        }
 
+        .total-price {
+            font-weight: 800;
+        }
     }
 `
 
@@ -83,7 +91,9 @@ const ShoppingCart = ({ cartActive, setCartActive, shoppingCartItems, setShoppin
                 <img className='item__image' src="./../../../images/image-product-1-thumbnail.jpg" alt="thumbnail" />
                 <div className="description-wrapper">
                     <p>{item.name}</p>
-                    <p>{` $${item.price}x${item.amount} total`}</p>
+                    <div className='price-wrapper'>
+                        <p>{` $${item.price} x ${item.amount}`}</p><p className='total-price'>${(item.price * item.amount).toFixed(2)}</p>
+                    </div>
                 </div>
                 <button onClick={() => cartClickHandler(item.id)}>
                     <img className='delete__image' src="./../../../images/icon-delete.svg" alt="thumbnail" />

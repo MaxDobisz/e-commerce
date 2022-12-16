@@ -43,12 +43,12 @@ const StyledNavbar = styled.div`
     }
 
     .cartItemsIndiactor {
-        font-size: .4rem;
+        font-size: .6rem;
         position: absolute;
         top: 0;
         left: 50%;
         background-color: var(--orange);;
-        padding: .2em 1em;
+        padding: .1em .7em;
         color: white;
         border-radius: 10px;
     }

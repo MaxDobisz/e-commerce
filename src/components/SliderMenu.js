@@ -4,7 +4,6 @@ import useClickOutside from "../hooks/useClickOutside";
 const StyledSliderMenu = styled.div`
         .menu {
             background-color: white;
-            border: 2px solid red;
             height: 100vh;
             left: -60%;
             padding: 1rem;
@@ -17,6 +16,18 @@ const StyledSliderMenu = styled.div`
 
         .menu--active {
             left: 0;
+        }
+
+        .menu__items-list {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5em;
+        }
+
+        .menu__item {
+            font-weight: 800;
+            font-size: 1.2rem;
         }
 
         .overlay {
@@ -37,7 +48,7 @@ const StyledSliderMenu = styled.div`
     `
 
 const SliderMenu = ({ menuActive, setMenuActive, overlayActive, setOverlayActive, menuItems }) => {
-    const renderMenuItems = menuItems.map(item => <ul className="menu__item">{item}</ul>);
+    const renderMenuItems = menuItems.map(item => <li className="menu__item">{item}</li>);
 
     const hamburgerClickHandler = () => {
         setMenuActive(false);
@@ -57,7 +68,7 @@ const SliderMenu = ({ menuActive, setMenuActive, overlayActive, setOverlayActive
                 <button onClick={hamburgerClickHandler}>
                     <img src="./../../../images/icon-close.svg" alt="hamburger menu" />
                 </button>
-                <ul>
+                <ul className="menu__items-list">
                     {renderMenuItems}
                 </ul>
             </nav>
