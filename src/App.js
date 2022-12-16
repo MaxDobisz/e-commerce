@@ -4,7 +4,6 @@ import Navbar from './components/Navbar';
 import PhotoSlider from './components/ImageSlider';
 import ProductDescription from './components/ProductDescription';
 import SliderMenu from './components/SliderMenu';
-import Counter from './components/Counter';
 import ShoppingCart from './components/ShoppingCart';
 
 function App() {
@@ -34,6 +33,7 @@ function App() {
         cartActive={cartActive}
         setCartActive={setCartActive}
         items={shoppingCartItems}
+        setShoppingCartItems={setShoppingCartItems}
       /> : null}
       <PhotoSlider />
       <ProductDescription />

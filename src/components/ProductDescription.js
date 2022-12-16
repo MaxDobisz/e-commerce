@@ -21,7 +21,6 @@ const StyledProductDescitpion = styled.div`
             color: var(--black);
             line-height: 1.5em;
         }
-
     `
 
 const ProductDescription = () => {

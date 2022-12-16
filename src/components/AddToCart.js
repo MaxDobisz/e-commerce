@@ -50,9 +50,20 @@ const StyledAddToCart = styled.div`
 
 const AddToCart = ({ shoppingCartItems, setShoppingCartItems, counter, setCounter }) => {
     const addToCartClickHandler = () => {
-        setShoppingCartItems([...shoppingCartItems, 'cosTam'])
         setCounter(0);
+        if (counter !== 0) {
+            setShoppingCartItems([...shoppingCartItems, {
+                name: 'Fall Limited Edition Sneakers',
+                price: 125,
+                amount: counter,
+                id: shoppingCartItems.length + 1
+            }])
+        }
     }
+    // 1: take the name/price/and amount and send it to cart
+    // zrobie state ktory dostaje object
+    //jesli object ( cart item sie zmieni zostanie wrenderowany)
+
 
     return (
         <StyledAddToCart>

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useState } from "react";
 
 const StyledCounter = styled.div`
         .counter {
@@ -22,26 +21,21 @@ const StyledCounter = styled.div`
                 align-self: center;
             }
         }
-
-        
     `
 
 const Counter = ({ counter, setCounter }) => {
-
-    const clickHandler = (e) => {
-        if (e.currentTarget.className.includes('minus') && counter !== 0) {
-            setCounter(counter - 1)
-        } else if (e.currentTarget.className.includes('plus')) {
-            setCounter(counter + 1)
+    const clickHandler = amount => {
+        if (counter + amount >= 0) {
+            setCounter(counter => counter + amount);
         }
     }
 
     return (
         <StyledCounter>
             <div className="counter">
-                <button className="counter__button counter__button--minus" onClick={clickHandler}>-</button>
+                <button className="counter__button" onClick={() => clickHandler(-1)}>-</button>
                 <p className="counter__number">{counter}</p>
-                <button className="counter__button counter__button--plus" onClick={clickHandler}>+</button>
+                <button className="counter__button" onClick={() => clickHandler(+1)}>+</button>
             </div>
         </StyledCounter>
     )
