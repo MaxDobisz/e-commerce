@@ -37,8 +37,23 @@ const StyledNavbar = styled.div`
         margin: 0;
         list-style-type: none;
     }
+
+    .cartButton {
+        position: relative;
+    }
+
+    .cartItemsIndiactor {
+        font-size: .4rem;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        background-color: var(--orange);;
+        padding: .2em 1em;
+        color: white;
+        border-radius: 10px;
+    }
 `
-const Navbar = ({ setMenuActive, setOverlayActive, cartActive, setCartActive }) => {
+const Navbar = ({ setMenuActive, setOverlayActive, cartActive, setCartActive, shoppingCartItems }) => {
     const hamburgerClickHandler = (e) => {
         setMenuActive(true);
         setOverlayActive(true);
@@ -48,6 +63,8 @@ const Navbar = ({ setMenuActive, setOverlayActive, cartActive, setCartActive }) 
         setCartActive(cartActive => !cartActive)
         // cartActive ? setCartActive(false) : setCartActive(true);
     }
+
+
 
     const renderNavElements = (itemsArr) => {
         return itemsArr.map(item => <li>{item}</li>);
@@ -68,12 +85,11 @@ const Navbar = ({ setMenuActive, setOverlayActive, cartActive, setCartActive }) 
             </nav>
             )} */}
 
-
-
-
             <div className="wrapper">
-                <button onClick={cartClickHandler}>
+                <button className="cartButton" onClick={cartClickHandler}>
                     <img src="./../../../images/icon-cart.svg" alt="cart" width="22" height="20" className="cart" />
+
+                    {shoppingCartItems.length !== 0 ? <p className="cartItemsIndiactor">{shoppingCartItems.length}</p> : null}
                 </button>
                 <img src="./../../../images/image-avatar.png" alt="user avatar" width="22" height="22" />
             </div>

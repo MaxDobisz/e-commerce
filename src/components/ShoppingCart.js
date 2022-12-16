@@ -72,13 +72,13 @@ const StyledShoppingCart = styled.div`
     }
 `
 
-const ShoppingCart = ({ cartActive, setCartActive, items, setShoppingCartItems }) => {
-    const renderCartItems = items => {
-        if (items.length === 0) {
+const ShoppingCart = ({ cartActive, setCartActive, shoppingCartItems, setShoppingCartItems }) => {
+    const renderCartItems = shoppingCartItems => {
+        if (shoppingCartItems.length === 0) {
             return <li><p>Your cart is empty</p></li>
         }
 
-        return items.map(item => {
+        return shoppingCartItems.map(item => {
             return <li className='list__item' id={item.id}>
                 <img className='item__image' src="./../../../images/image-product-1-thumbnail.jpg" alt="thumbnail" />
                 <div className="description-wrapper">
@@ -111,8 +111,8 @@ const ShoppingCart = ({ cartActive, setCartActive, items, setShoppingCartItems }
 
     const cartClickHandler = (id) => {
 
-        setShoppingCartItems(items => {
-            return items.filter(item => item.id !== id);
+        setShoppingCartItems(shoppingCartItems => {
+            return shoppingCartItems.filter(item => item.id !== id);
         })
     }
 
@@ -121,7 +121,7 @@ const ShoppingCart = ({ cartActive, setCartActive, items, setShoppingCartItems }
             <div className="shoppingCart" ref={nodeRef} >
                 <p className="shoppingCart__title">Cart</p>
                 <ul className="shoppingCart__list">
-                    {renderCartItems(items)}
+                    {renderCartItems(shoppingCartItems)}
                 </ul>
                 <button className="add-to-cart__button"  >Checkout</button>
             </div>

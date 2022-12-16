@@ -21,6 +21,7 @@ function App() {
         setOverlayActive={setOverlayActive}
         cartActive={cartActive}
         setCartActive={setCartActive}
+        shoppingCartItems={shoppingCartItems}
       />
       <SliderMenu
         menuActive={menuActive}
@@ -32,7 +33,7 @@ function App() {
       {cartActive ? <ShoppingCart
         cartActive={cartActive}
         setCartActive={setCartActive}
-        items={shoppingCartItems}
+        shoppingCartItems={shoppingCartItems}
         setShoppingCartItems={setShoppingCartItems}
       /> : null}
       <PhotoSlider />
