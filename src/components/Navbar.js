@@ -1,99 +1,89 @@
 import styled from "styled-components";
-import { useState } from 'react';
-import ShoppingCart from './ShoppingCart';
 
 const StyledNavbar = styled.div`
-    display: flex;
-    justify-content: space-between;
-    padding: 1.5rem;
-    
-    .wrapper {
+    .navbar {
+        align-items: center;
+        color: var(--dark-grayish-blue);
         display: flex;
         gap: 1rem;
+        padding: 1.5rem;
+
+        &__navigation {
+            display: none;
+
+            .navigation__list {
+                display: flex;
+                gap: 1rem;
+            }
+        }
+
+        &__cart-button {
+            margin-left: auto;
+            position: relative;
+
+            .cart-button__items-indiactor {
+                background-color: var(--orange);;
+                border-radius: 10px;
+                color: white;
+                font-size: .6rem;
+                left: 50%;
+                padding: .1em .7em;
+                position: absolute;
+                top: -20%;
+            } 
+        }
+
+        &__user-avatar {
+            height: 25px;
+        }
     }
 
-    .hamburger-button {
-        margin: auto;
-    }
+    @media (min-width: 800px){
+        .navbar {
+            border-bottom: 2px solid var(--grayish-blue);
+            gap: 2rem;
 
-    .hamburger-button--open {
-        position: absolute;
-        margin-left: 2px;
-        margin-top: 3px;
-        opacity: 0;
-    }
+            &__hamburger-button {
+                display: none;
+            }
 
-    .navigation {
-        position: absolute;
-        padding: 3rem 1.3rem;
-        top: 0;
-        left: 0;
-        background-color: white;
-        height: 100%;
-    }
+            &__navigation {
+                display: block;
+            }
 
-    .navigation__list {
-        padding: 0;
-        margin: 0;
-        list-style-type: none;
-    }
-
-    .cartButton {
-        position: relative;
-    }
-
-    .cartItemsIndiactor {
-        font-size: .6rem;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        background-color: var(--orange);;
-        padding: .1em .7em;
-        color: white;
-        border-radius: 10px;
+            &__user-avatar {
+                height: 50px;
+            }
+        }
     }
 `
-const Navbar = ({ setMenuActive, setOverlayActive, cartActive, setCartActive, shoppingCartItems }) => {
-    const hamburgerClickHandler = (e) => {
+
+const Navbar = ({ menuItems, setMenuActive, setOverlayActive, setCartActive, shoppingCartItems }) => {
+    const hamburgerClickHandler = () => {
         setMenuActive(true);
         setOverlayActive(true);
     }
-
-    const cartClickHandler = () => {
-        setCartActive(cartActive => !cartActive)
-        // cartActive ? setCartActive(false) : setCartActive(true);
-    }
-
-
-
-    const renderNavElements = (itemsArr) => {
-        return itemsArr.map(item => <li>{item}</li>);
-    }
+    const renderNavigationItems = menuItems => menuItems.map(item => <li><p>{item}</p></li>);
+    const cartClickHandler = () => setCartActive(cartActive => !cartActive);
 
     return (
-        <StyledNavbar className="navbar">
-            <div className="wrapper">
-                <button className="hamburger-button hamburger-button--closed" onClick={hamburgerClickHandler}>
+        <StyledNavbar>
+            <div className="navbar">
+                <button className="navbar__hamburger-button" onClick={hamburgerClickHandler}>
                     <img src="./../../../images/icon-menu.svg" alt="hamburger menu" />
                 </button>
-                <img src="./../../../images/logo.svg" alt="logo" width="138" height="20" />
-            </div>
-            {/* {menuVisibility && (<nav className="navigation">
-                <ul className="navigation__list">
-                    {renderNavElements(menuElements)}
-                </ul>
-            </nav>
-            )} */}
-
-            <div className="wrapper">
-                <button className="cartButton" onClick={cartClickHandler}>
-                    <img src="./../../../images/icon-cart.svg" alt="cart" width="22" height="20" className="cart" />
-
-                    {shoppingCartItems.length !== 0 ? <p className="cartItemsIndiactor">{shoppingCartItems.length}</p> : null}
+                <img src="./../../../images/logo.svg" alt="logo" />
+                <nav className="navbar__navigation">
+                    <ul className="navigation__list">
+                        {renderNavigationItems(menuItems)}
+                    </ul>
+                </nav>
+                <button className="navbar__cart-button" onClick={cartClickHandler}>
+                    <img className="cart-button__icon" src="./../../../images/icon-cart.svg" alt="cart" />
+                    {shoppingCartItems.length !== 0 ? <p className="cart-button__items-indiactor">{shoppingCartItems.length}</p> : null}
                 </button>
-                <img src="./../../../images/image-avatar.png" alt="user avatar" width="22" height="22" />
+                <img className="navbar__user-avatar" src="./../../../images/image-avatar.png" alt="user avatar" />
             </div>
-
         </StyledNavbar>
     )
 }

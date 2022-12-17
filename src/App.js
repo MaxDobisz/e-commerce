@@ -11,12 +11,13 @@ function App() {
   const [overlayActive, setOverlayActive] = useState(false);
   const [cartActive, setCartActive] = useState(false);
   const [shoppingCartItems, setShoppingCartItems] = useState([]);
-  const menuItems = ['Collections', 'Men', 'Women', 'About', 'Contact'];
   const [counter, setCounter] = useState(0);
+  const menuItems = ['Collections', 'Men', 'Women', 'About', 'Contact'];
 
   return (
     <>
       <Navbar
+        menuItems={menuItems}
         setMenuActive={setMenuActive}
         setOverlayActive={setOverlayActive}
         cartActive={cartActive}
