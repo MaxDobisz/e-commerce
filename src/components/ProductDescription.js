@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledProductDescitpion = styled.div`
         margin: 1.5rem;
-
+        
         .product-description__company-name {
             font-size: .8rem;
             font-weight: 700;
@@ -20,6 +20,10 @@ const StyledProductDescitpion = styled.div`
         .product-description__details {
             color: var(--black);
             line-height: 1.5em;
+        }
+
+        @media(min-width: 800px) {
+           margin-top: auto;
         }
     `
 

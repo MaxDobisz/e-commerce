@@ -25,6 +25,8 @@ const imagesData = [
 ]
 
 const StyledImageSlider = styled.div`
+
+
     .image-slider {
         position: relative;
 
@@ -50,6 +52,11 @@ const StyledImageSlider = styled.div`
                 height: 1rem ;
             }
         } 
+    }
+
+    @media(min-width: 800px) {
+        grid-row: 1/3;
+        grid-column: 1/2;
     }
 `
 

@@ -95,3 +95,8 @@ button {
 img {
     display: block;
 }
+
+body {
+    max-width: 1224px;
+    margin: 0 auto;
+}

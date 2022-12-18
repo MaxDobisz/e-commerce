@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import menuItems from './../data/menuItems'
 
 const StyledNavbar = styled.div`
     .navbar {
@@ -58,12 +59,14 @@ const StyledNavbar = styled.div`
     }
 `
 
-const Navbar = ({ menuItems, setMenuActive, setOverlayActive, setCartActive, shoppingCartItems }) => {
+const Navbar = ({ setMenuActive, setOverlayActive, setCartActive, shoppingCartItems }) => {
     const hamburgerClickHandler = () => {
         setMenuActive(true);
         setOverlayActive(true);
     }
-    const renderNavigationItems = menuItems => menuItems.map(item => <li><p>{item}</p></li>);
+
+    const renderNavigationItems = menuItems.map(item => <li><p>{item}</p></li>);
+
     const cartClickHandler = () => setCartActive(cartActive => !cartActive);
 
     return (
@@ -75,7 +78,7 @@ const Navbar = ({ menuItems, setMenuActive, setOverlayActive, setCartActive, sho
                 <img src="./../../../images/logo.svg" alt="logo" />
                 <nav className="navbar__navigation">
                     <ul className="navigation__list">
-                        {renderNavigationItems(menuItems)}
+                        {renderNavigationItems} {/* fix */}
                     </ul>
                 </nav>
                 <button className="navbar__cart-button" onClick={cartClickHandler}>

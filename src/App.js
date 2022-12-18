@@ -1,10 +1,8 @@
 import { useState } from 'react';
-import AddToCart from './components/AddToCart';
 import Navbar from './components/Navbar';
-import PhotoSlider from './components/ImageSlider';
-import ProductDescription from './components/ProductDescription';
 import SliderMenu from './components/SliderMenu';
 import ShoppingCart from './components/ShoppingCart';
+import Content from './components/Content';
 
 function App() {
   const [menuActive, setMenuActive] = useState(false);
@@ -37,14 +35,13 @@ function App() {
         shoppingCartItems={shoppingCartItems}
         setShoppingCartItems={setShoppingCartItems}
       /> : null}
-      <PhotoSlider />
-      <ProductDescription />
-      <AddToCart
+
+      <Content
         shoppingCartItems={shoppingCartItems}
         setShoppingCartItems={setShoppingCartItems}
         counter={counter}
         setCounter={setCounter}
-      /> 
+      />
     </>
   );
 }
