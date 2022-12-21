@@ -16,26 +16,14 @@ function App() {
     <>
       <Navbar
         menuItems={menuItems}
-        setMenuActive={setMenuActive}
-        setOverlayActive={setOverlayActive}
-        cartActive={cartActive}
-        setCartActive={setCartActive}
-        shoppingCartItems={shoppingCartItems}
-      />
-      <SliderMenu
         menuActive={menuActive}
         setMenuActive={setMenuActive}
         overlayActive={overlayActive}
         setOverlayActive={setOverlayActive}
-        menuItems={menuItems}
-      />
-      {cartActive ? <ShoppingCart
         cartActive={cartActive}
         setCartActive={setCartActive}
         shoppingCartItems={shoppingCartItems}
-        setShoppingCartItems={setShoppingCartItems}
-      /> : null}
-
+      />
       <Content
         shoppingCartItems={shoppingCartItems}
         setShoppingCartItems={setShoppingCartItems}

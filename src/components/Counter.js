@@ -26,7 +26,7 @@ const StyledCounter = styled.div`
 const Counter = ({ counter, setCounter }) => {
     const clickHandler = amount => {
         if (counter + amount >= 0) {
-            setCounter(counter => counter + amount);
+            setCounter(c => c + amount);
         }
     }
 

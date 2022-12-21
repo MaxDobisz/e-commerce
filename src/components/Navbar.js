@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import menuItems from './../data/menuItems'
+import ShoppingCart from "./ShoppingCart";
+import SliderMenu from "./SliderMenu";
 
 const StyledNavbar = styled.div`
     .navbar {
@@ -59,14 +60,12 @@ const StyledNavbar = styled.div`
     }
 `
 
-const Navbar = ({ setMenuActive, setOverlayActive, setCartActive, shoppingCartItems }) => {
+const Navbar = ({ menuItems, menuActive, setMenuActive, overlayActive, setOverlayActive, cartActive, setCartActive, shoppingCartItems, setShoppingCartItems }) => {
     const hamburgerClickHandler = () => {
         setMenuActive(true);
         setOverlayActive(true);
     }
-
-    const renderNavigationItems = menuItems.map(item => <li><p>{item}</p></li>);
-
+    const renderNavigationItems = menuItems => menuItems.map(item => <li><p>{item}</p></li>);
     const cartClickHandler = () => setCartActive(cartActive => !cartActive);
 
     return (
@@ -78,7 +77,7 @@ const Navbar = ({ setMenuActive, setOverlayActive, setCartActive, shoppingCartIt
                 <img src="./../../../images/logo.svg" alt="logo" />
                 <nav className="navbar__navigation">
                     <ul className="navigation__list">
-                        {renderNavigationItems} {/* fix */}
+                        {renderNavigationItems(menuItems)}
                     </ul>
                 </nav>
                 <button className="navbar__cart-button" onClick={cartClickHandler}>
@@ -87,6 +86,19 @@ const Navbar = ({ setMenuActive, setOverlayActive, setCartActive, shoppingCartIt
                 </button>
                 <img className="navbar__user-avatar" src="./../../../images/image-avatar.png" alt="user avatar" />
             </div>
+            <SliderMenu
+                menuActive={menuActive}
+                setMenuActive={setMenuActive}
+                overlayActive={overlayActive}
+                setOverlayActive={setOverlayActive}
+                menuItems={menuItems}
+            />
+            {cartActive ? <ShoppingCart
+                cartActive={cartActive}
+                setCartActive={setCartActive}
+                shoppingCartItems={shoppingCartItems}
+                setShoppingCartItems={setShoppingCartItems}
+            /> : null}
         </StyledNavbar>
     )
 }
