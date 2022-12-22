@@ -9,6 +9,8 @@ const StyledShoppingCart = styled.div`
     position: absolute;
     z-index: 2;
     width: calc(100% - 1rem);
+    top: 70px;
+    left: 0;
 
     .shoppingCart {
         min-height: 200px;
@@ -105,22 +107,7 @@ const ShoppingCart = ({ cartActive, setCartActive, shoppingCartItems, setShoppin
 
     const nodeRef = useClickOutside(setCartActive, 'cart')
 
-    // useEffect(() => {
-    //     const handler = (e) => {
-    //         if (!cartRef.current.contains(e.target) && !e.target.className.includes('cart')) {
-    //             setCartActive(false)
-    //         }
-    //     }
-
-    //     document.addEventListener('mousedown', handler);
-
-    //     return () => {
-    //         document.removeEventListener('mousedown', handler)
-    //     }
-    // })
-
     const cartClickHandler = (id) => {
-
         setShoppingCartItems(shoppingCartItems => {
             return shoppingCartItems.filter(item => item.id !== id);
         })
@@ -133,7 +120,7 @@ const ShoppingCart = ({ cartActive, setCartActive, shoppingCartItems, setShoppin
                 <ul className="shoppingCart__list">
                     {renderCartItems(shoppingCartItems)}
                 </ul>
-                <button className="add-to-cart__button"  >Checkout</button>
+                <button className="add-to-cart__button">Checkout</button>
             </div>
         </StyledShoppingCart>
     )
