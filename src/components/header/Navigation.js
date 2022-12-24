@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import menuItems from "../data/navigationItems"
+import menuItems from "./../../data/navigationItems"
 
 const StyeledNavigation = styled.div`
         .navigation {

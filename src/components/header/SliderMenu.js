@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import useClickOutside from "../hooks/useClickOutside";
+import useClickOutside from "../../hooks/useClickOutside";
+import menuItems from "../../data/navigationItems";
 
 const StyledSliderMenu = styled.div`
         .menu {
@@ -47,24 +48,24 @@ const StyledSliderMenu = styled.div`
         }
     `
 
-const SliderMenu = ({ menuActive, setMenuActive, overlayActive, setOverlayActive, menuItems }) => {
+const SliderMenu = (props) => {
     const renderMenuItems = menuItems.map(item => <li className="menu__item">{item}</li>);
 
     const hamburgerClickHandler = () => {
-        setMenuActive(false);
-        setOverlayActive(false);
+        props.setMenuActive(false);
+        props.setOverlayActive(false);
     }
 
     const overlayClickHandler = () => {
-        setOverlayActive(false);
+        props.setOverlayActive(false);
     }
 
-    const sliderRef = useClickOutside(setMenuActive);
+    const sliderRef = useClickOutside(props.setMenuActive);
 
 
     return (
         <StyledSliderMenu>
-            <nav className={`menu ${menuActive && 'menu--active'}`} ref={sliderRef}>
+            <nav className={`menu ${props.menuActive && 'menu--active'}`} ref={sliderRef}>
                 <button onClick={hamburgerClickHandler}>
                     <img src="./../../../images/icon-close.svg" alt="hamburger menu" />
                 </button>
@@ -72,7 +73,7 @@ const SliderMenu = ({ menuActive, setMenuActive, overlayActive, setOverlayActive
                     {renderMenuItems}
                 </ul>
             </nav>
-            <div className={`overlay ${overlayActive ? 'overlay--active' : ''}`} onClick={overlayClickHandler}></div>
+            <div className={`overlay ${props.overlayActive ? 'overlay--active' : ''}`} onClick={overlayClickHandler}></div>
         </StyledSliderMenu>
     );
 }

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Counter from './Counter';
+import Counter from '../reusable/Counter';
 import ProductPrice from './ProductPrice';
 
 const StyledAddToCart = styled.div`

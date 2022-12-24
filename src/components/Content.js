@@ -1,6 +1,6 @@
-import AddToCart from './AddToCart';
-import PhotoSlider from './ImageSlider';
-import ProductDescription from './ProductDescription';
+import AddToCart from './content/AddToCart';
+import PhotoSlider from './content/ImageSlider';
+import ProductDescription from './content/ProductDescription';
 import styled from 'styled-components';
 
 const StyledContent = styled.main`

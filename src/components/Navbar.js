@@ -1,11 +1,10 @@
 import styled from "styled-components";
-import ShoppingCart from "./ShoppingCart";
-import SliderMenu from "./SliderMenu";
-import Button from "./reusable/button"
-import Navigation from "./Navigation";
+import Navigation from "./header/Navigation";
+import Hamburger from "./header/Hamburger";
+import Cart from "./header/Cart";
 
 const StyledNavbar = styled.div`
-
+    position: relative;
     .navbar {
         align-items: center;
         color: var(--dark-grayish-blue);
@@ -53,42 +52,15 @@ const StyledNavbar = styled.div`
     }
 `
 
-const Navbar = ({ menuActive, setMenuActive, overlayActive, setOverlayActive, cartActive, setCartActive, shoppingCartItems, setShoppingCartItems, menuItems }) => {
-    const hamburgerClickHandler = () => {
-        setMenuActive(true);
-        setOverlayActive(true);
-    }
-
-    const cartClickHandler = () => setCartActive(cartActive => !cartActive);
-
-
+const Navbar = (props) => {
     return (
         <StyledNavbar>
             <div className="navbar">
-                <Button handleClick={hamburgerClickHandler}>
-                    <img src="./../../../images/icon-menu.svg" alt="hamburger menu" />
-                </Button>
+                <Hamburger {...props} />
                 <img className="navbar__logo" src="./../../../images/logo.svg" alt="logo" />
                 <Navigation />
-                <Button handleClick={cartClickHandler}>
-                    <img className="cart-button__icon" src="./../../../images/icon-cart.svg" alt="cart" />
-                    {shoppingCartItems.length !== 0 ? <p className="cart-button__items-indiactor">{shoppingCartItems.length}</p> : null}
-                </Button>
+                <Cart {...props} />
                 <img className="navbar__user-avatar" src="./../../../images/image-avatar.png" alt="user avatar" />
-
-                <SliderMenu
-                    menuActive={menuActive}
-                    setMenuActive={setMenuActive}
-                    overlayActive={overlayActive}
-                    setOverlayActive={setOverlayActive}
-                    menuItems={menuItems}
-                />
-                {cartActive ? <ShoppingCart
-                    cartActive={cartActive}
-                    setCartActive={setCartActive}
-                    shoppingCartItems={shoppingCartItems}
-                    setShoppingCartItems={setShoppingCartItems}
-                /> : null}
             </div>
         </StyledNavbar>
     )
