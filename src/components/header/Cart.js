@@ -1,28 +1,41 @@
 import styled from 'styled-components';
-import Button from '../reusable/button';
 import CartList from './CartList';
 
+const StyledCart = styled.div`
+    margin-left: auto;
 
-const StyledShoppingCart = styled.div`
-    margin: .5rem;
-    border-radius: 10px;
-    z-index: 2;
+    .cart__button {
+        position: relative;
+    }
+
+    .cart__items-indiactor {
+        background-color: var(--orange);
+        border-radius: 20px;
+        color: white;
+        font-size: .7rem;
+        padding: 1px 6px;
+        position: absolute;
+        right: -5px;
+        top: -5px;
+    }   
 `
 
 const Cart = (props) => {
     const cartClickHandler = () => {
-        props.setCartActive(() => !props.cartActive)
+        props.setCartActive(cartActive => !cartActive)
     }
 
     return (
-        <StyledShoppingCart>
-            <Button handleClick={cartClickHandler}>
-                <img className="cart-button__icon" src="./../../../images/icon-cart.svg" alt="cart" />
-                {props.shoppingCartItems.length !== 0 ? <p className="cart-button__items-indiactor">{props.shoppingCartItems.length}</p> : null}
-            </Button>
-            {props.cartActive ? <CartList {...props} /> : null}
-        </StyledShoppingCart>
+        <StyledCart>
+            <div className="cart">
+                <button className='cart__button' onClick={cartClickHandler}>
+                    <img className='cart__icon' src="./../../../images/icon-cart.svg" alt="cart" />
+                    {props.cartItems.length !== 0 ? <p className="cart__items-indiactor">{props.cartItems.length}</p> : null}
+                </button>
+                {props.cartActive ? <CartList {...props} /> : null}
+            </div>
+        </StyledCart>
     )
-
 }
+
 export default Cart;

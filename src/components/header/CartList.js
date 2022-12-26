@@ -2,28 +2,42 @@ import styled from 'styled-components';
 import useClickOutside from '../../hooks/useClickOutside';
 import CartItem from './CarItem';
 
-//refactor done / change props only
-
 const StyledCartList = styled.div`
     .cart-list {
         background-color: white;
         border-radius: 10px;
-        left: 0;
-        margin: 1rem;
+        box-shadow: 0 15px 30px 0px rgb(0,0,0,.5);
+        right: 0;
+        margin: .5rem;
         position: absolute;
         top: 100%;
-        width: calc(100% - 2rem);
-        
+        width: calc(100% - 1rem);
+        z-index: 3;
 
         &__content-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 200px;
             padding: 1rem;
         }
 
-        &__title {
-            color: black;
-            border-bottom: 1px solid var(--grayish-blue);
+        &__empty {
             font-weight: 800;
-            padding: 1rem;
+            text-align: center;
+        }
+
+        &__items {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        &__title {
+            border-bottom: 1px solid var(--grayish-blue);
+            color: black;
+            font-weight: 800;
+            padding: 1rem 1rem 1.5rem;
         }
 
         &__checkout {
@@ -33,33 +47,44 @@ const StyledCartList = styled.div`
             display: block;
             font-size: 1rem;
             font-weight: 700;
-            padding: 1em 0;
+            margin: 1.5rem 0 .5rem;
+            padding: 1.2em 0;
             width: 100%;
+        }
+    }
+
+    @media (min-width: 800px) {
+        .cart-list {
+            width: 30%;
         }
     }
 `
 
 const CartList = (props) => {
-    const nodeRef = useClickOutside(props.setCartActive, 'cart')
+    const nodeRef = useClickOutside(props.setCartActive, 'cart');
 
-    const cartItems = () => {
-        if (props.shoppingCartItems.length === 0) {
-            return <p>Your cart is empty</p>;
+    const renderCartItems = () => {
+        if (props.cartItems.length === 0) {
+            return <p className='cart-list__empty'>Your cart is empty</p>;
         } else {
             return (
-                <div className='cart-list__content-wrapper'>
-                    <ul /*className="cart-list__items" */>{props.shoppingCartItems.map(item => <CartItem item={item} />)}</ul>
+                <>
+                    <ul className='cart-list__items'>
+                        {props.cartItems.map(item => <CartItem item={item}  {...props} />)}
+                    </ul>
                     <button className='cart-list__checkout'>Checkout</button>
-                </div>
+                </>
             );
         }
     }
 
     return (
         <StyledCartList>
-            <div className="cart-list" ref={nodeRef} >
+            <div className="cart-list" ref={nodeRef}>
                 <h3 className="cart-list__title">Cart</h3>
-                {cartItems()}
+                <div className='cart-list__content-wrapper'>
+                    {renderCartItems()}
+                </div>
             </div>
         </StyledCartList>
     )

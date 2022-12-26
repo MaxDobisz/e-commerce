@@ -9,7 +9,9 @@ const useClickOutside = (setIsActiveHandler, buttonClass) => {
                 setIsActiveHandler(false)
             }
         }
+
         document.addEventListener('mousedown', handler);
+
         return () => {
             document.removeEventListener('mousedown', handler)
         }

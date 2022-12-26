@@ -19,19 +19,18 @@ const StyledAddToCart = styled.div`
         }
     `
 
-const AddToCart = ({ shoppingCartItems, setShoppingCartItems, counter, setCounter }) => {
+const AddToCart = ({ cartItems, setCartItems, counter, setCounter }) => {
     const addToCartClickHandler = () => {
         setCounter(0);
         if (counter !== 0) {
-            setShoppingCartItems([...shoppingCartItems, {
+            setCartItems([...cartItems, {
                 name: 'Fall Limited Edition Sneakers',
                 price: 125,
                 amount: counter,
-                id: shoppingCartItems.length + 1
+                id: cartItems.length + 1
             }])
         }
     }
-
 
     return (
         <StyledAddToCart>

@@ -5,30 +5,16 @@ import Cart from "./header/Cart";
 
 const StyledNavbar = styled.div`
     position: relative;
+    padding: 1.5rem 1rem;
+
     .navbar {
         align-items: center;
         color: var(--dark-grayish-blue);
         display: flex;
         gap: 1rem;
-        padding: 1.5rem;
-
-        &__logo {
-             margin-right: auto;
-        }
-
+    
         &__cart-button {
             position: relative;
-
-            .cart-button__items-indiactor {
-                background-color: var(--orange);;
-                border-radius: 10px;
-                color: white;
-                font-size: .6rem;
-                left: 50%;
-                padding: .1em .7em;
-                position: absolute;
-                top: -20%;
-            } 
         }
 
         &__user-avatar {
@@ -37,8 +23,11 @@ const StyledNavbar = styled.div`
     }
 
     @media (min-width: 800px){
+        margin-bottom: 4rem;
+        border-bottom: 2px solid var(--grayish-blue);
+        padding: 0 1rem;
         .navbar {
-            border-bottom: 2px solid var(--grayish-blue);
+            
             gap: 2rem;
 
             &__hamburger-button {
@@ -47,6 +36,11 @@ const StyledNavbar = styled.div`
 
             &__user-avatar {
                 height: 50px;
+
+                &:hover {
+                    border: 3px solid var(--orange);
+                    border-radius: 25px;
+                }
             }
         }
     }

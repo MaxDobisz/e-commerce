@@ -1,35 +1,38 @@
 import { useState } from 'react';
 import Navbar from './components/Navbar';
 import Content from './components/Content';
-import menuItems from './data/navigationItems';
+import ImageSlider from './components/content/ImageSlider';
+import ImageSliderFullScreen from './components/ImageSliderFullScreen'
 
 function App() {
   const [menuActive, setMenuActive] = useState(false);
   const [overlayActive, setOverlayActive] = useState(false);
   const [cartActive, setCartActive] = useState(false);
-  const [shoppingCartItems, setShoppingCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
   const [counter, setCounter] = useState(0);
+  const [sliderActive, setSliderActive] = useState(true);
+
 
 
   return (
     <>
-      <Navbar
+      {/* <Navbar
         menuActive={menuActive}
         setMenuActive={setMenuActive}
         overlayActive={overlayActive}
         setOverlayActive={setOverlayActive}
         cartActive={cartActive}
         setCartActive={setCartActive}
-        shoppingCartItems={shoppingCartItems}
-        setShoppingCartItems={setShoppingCartItems}
-        menuItems={menuItems}
-      />
-      <Content
-        shoppingCartItems={shoppingCartItems}
-        setShoppingCartItems={setShoppingCartItems}
+        cartItems={cartItems}
+        setCartItems={setCartItems}
+      /> */}
+      {sliderActive && <ImageSliderFullScreen />}
+      {/* <Content
+        cartItems={cartItems}
+        setCartItems={setCartItems}
         counter={counter}
         setCounter={setCounter}
-      />
+      /> */}
     </>
   );
 }

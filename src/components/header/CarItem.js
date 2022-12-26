@@ -14,32 +14,37 @@ const StyledCartItem = styled.div`
             display: flex;
             flex-direction: column;
             justify-content: space-around;
-            
         }
 
         &__price-wrapper {
             display: flex;
+            gap: .5rem;
         }
 
         &__total-price {
             font-weight: 800;
+            color: black;
         } 
     }  
 `
 
-const CartItem = ({ item, cartClickHandler }) => {
+const CartItem = (props) => {
+    const handleDeleteClick = (id) => {
+        props.setCartItems(items => items.filter(item => item.id !== id));
+    }
+
     return (
         <StyledCartItem>
-            <li className='cart-item' id={item.id}>
+            <li className='cart-item' id={props.item.id}>
                 <img className='cart-item__image' src="./../../../images/image-product-1-thumbnail.jpg" alt="thumbnail" />
                 <div className="cart-item__description-wrapper">
-                    <p>{item.name}</p>
+                    <p>{props.item.name}</p>
                     <div className='cart-item__price-wrapper'>
-                        <p>{` $${item.price} x ${item.amount}`}</p>
-                        <p className='cart-item__total-price'>${(item.price * item.amount).toFixed(2)}</p>
+                        <p>{` $${(props.item.price).toFixed(2)} x ${props.item.amount}`}</p>
+                        <p className='cart-item__total-price'> ${(props.item.price * props.item.amount).toFixed(2)}</p>
                     </div>
                 </div>
-                <button className="cart-item__checkout " onClick={() => cartClickHandler(item.id)}>
+                <button className="cart-item__checkout " onClick={() => handleDeleteClick(props.item.id)}>
                     <img className='cart-item__delete' src="./../../../images/icon-delete.svg" alt="thumbnail" />
                 </button>
             </li>
