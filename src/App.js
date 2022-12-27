@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import Navbar from './components/Navbar';
 import Content from './components/Content';
-import ImageSlider from './components/content/ImageSlider';
-import ImageSliderFullScreen from './components/ImageSliderFullScreen'
 
 function App() {
   const [menuActive, setMenuActive] = useState(false);
@@ -10,13 +8,11 @@ function App() {
   const [cartActive, setCartActive] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [counter, setCounter] = useState(0);
-  const [sliderActive, setSliderActive] = useState(true);
-
-
+  const [sliderActive, setSliderActive] = useState(false);
 
   return (
     <>
-      {/* <Navbar
+      <Navbar
         menuActive={menuActive}
         setMenuActive={setMenuActive}
         overlayActive={overlayActive}
@@ -25,14 +21,15 @@ function App() {
         setCartActive={setCartActive}
         cartItems={cartItems}
         setCartItems={setCartItems}
-      /> */}
-      {sliderActive && <ImageSliderFullScreen />}
-      {/* <Content
+      />
+      <Content
         cartItems={cartItems}
         setCartItems={setCartItems}
         counter={counter}
         setCounter={setCounter}
-      /> */}
+        sliderActive={sliderActive}
+        setSliderActive={setSliderActive}
+      />
     </>
   );
 }

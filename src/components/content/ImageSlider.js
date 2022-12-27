@@ -1,25 +1,18 @@
 import { useState } from "react";
 import styled from "styled-components";
 import imagesData from "../../data/images";
-
+import useClickOutside from "../../hooks/useClickOutside";
 const StyledImageSlider = styled.div`
     .image-slider {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 50%;
-        margin: 0 auto;
-
+       
+        position: relative; // potrzebne do strzalek
         &__main-img {
-            border-radius: 30px;
-            position: relative;
-            width:100%;
-           
+      
         }
 
         &__arrow-button {
             background-color: white;
-            border-radius: 25px;
+            border-radius: 50%;
             margin: 0 1em;
             padding: 1em;
             top: calc(50% - 1em);
@@ -50,13 +43,30 @@ const StyledImageSlider = styled.div`
         grid-row: 1/3;
         grid-column: 1/2;
         margin: 0 auto;
-
+        width: 500px;
+        
         .image-slider__main-img {
-            
-            border-radius: 30px;
+            border-radius: 5%;
             position: relative;
         }
 
+        .image-slider__arrow-button  {
+            display: none;
+            /* top: 40%;
+            border-radius: 50%;
+            z-index: 1;
+            padding: 2.5em;
+
+            &--previous {
+                left: -50px;
+           
+            } 
+
+            &--next {
+                right: -50px;
+            }  */
+        }
+           
         .thumbnail__button {
             display: block;
         }
@@ -69,11 +79,11 @@ const StyledImageSlider = styled.div`
 
         .image-slider__thumbnail {
             width: 20%;
-            border-radius: 10px;
+            border-radius: 10%;
             overflow: hidden;
 
             .thumbnail__image {
-                border-radius: 30px;
+                border-radius: 10%;
                 z-index: 4;
             }
 
@@ -82,14 +92,19 @@ const StyledImageSlider = styled.div`
             }
             
         }
+
+        .image-slider__thumbnails-list {
+            justify-content: space-between;
+        }
+
         .selected {
-            border-radius: 30px;
-                box-shadow: 0 0 0 3px var(--orange);
-            }
+            border-radius: 10%;
+            box-shadow: 0 0 0 3px var(--orange);
+        }
     }
 `
 
-const ImageSlider = () => {
+const ImageSlider = ({ setSliderActive }) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const arrowButtonClickHandler = nextImage => {
@@ -114,30 +129,21 @@ const ImageSlider = () => {
         )
     })
 
-    const displayFullSCreen = () => {
 
-    }
+    const nodeRef = useClickOutside(setSliderActive, 'cart');
 
     return (
         <StyledImageSlider>
             <div className="image-slider">
-
-
-                <div className="image-slider__main-img">
                     <button className="image-slider__arrow-button image-slider__arrow-button--previous" onClick={() => arrowButtonClickHandler(-1)}>
                         <img className="arrow-button__img" src='./../../../images/icon-previous.svg' alt="white/brownish trainers" />
                     </button>
 
-                    <img clas onClick={displayFullSCreen} src={imagesData[currentImageIndex].url} alt="white/brownish trainers" />
+                <img className="image-slider__main-img" onClick={setSliderActive} src={imagesData[currentImageIndex].url} alt="white/brownish trainers" />
 
                     <button className="image-slider__arrow-button image-slider__arrow-button--next" onClick={() => arrowButtonClickHandler(1)}>
                         <img className="arrow-button__img" src='./../../../images/icon-next.svg' alt="white/brownish trainers" />
-                    </button>
-                </div>
-
-
-
-
+                </button>
 
                 <ul className="image-slider__thumbnails-list">
                     {thumbnails}
