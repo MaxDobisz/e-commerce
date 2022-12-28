@@ -75,7 +75,7 @@ input[type=button] {width: auto; overflow: visible;}
     --grayish-blue: hsl(220, 14%, 75%);
     --light-grayish-blue: hsl(223, 64%, 98%);
     --white: hsl(0, 0%, 100%);
-    --black: rgba(0, 0, 0, 0.75); /*(with 75% opacity for lightbox background)*/
+    --black: hsla(0, 0%, 0%, 0.75); /*(with 75% opacity for lightbox background)*/
 }
 
 html,

@@ -47,7 +47,7 @@ const StyledImageSlider = styled.div`
             }
 
             &__main-img {
-                border-radius: 5%;
+                border-radius: 3%;
             }
 
             &__thumbnails-list {
@@ -65,10 +65,10 @@ const StyledImageSlider = styled.div`
                 &--selected {
                     border-radius: 10%;
                     box-shadow: 0 0 0 3px var(--orange);
-                }
-
-                &:hover {
-                    opacity: 0.4;
+                    
+                    .thumbnail__image {
+                        opacity: 0.4;
+                    }
                 }
 
                 .thumbnail__button {
@@ -78,6 +78,10 @@ const StyledImageSlider = styled.div`
                 .thumbnail__image {
                     border-radius: 10%;
                     z-index: 4;
+
+                    &:hover {
+                        opacity: 0.4;
+                    }
                 }
             }    
         }
