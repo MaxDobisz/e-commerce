@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef } from "react";
 
 const useClickOutside = (setIsActiveHandler, buttonClass) => {
     let nodeRef = useRef();
@@ -9,8 +9,6 @@ const useClickOutside = (setIsActiveHandler, buttonClass) => {
                 setIsActiveHandler(false)
             }
         }
-
-
 
         document.addEventListener('mousedown', handler);
 
