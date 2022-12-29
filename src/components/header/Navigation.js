@@ -1,30 +1,35 @@
 import styled from "styled-components";
-import menuItems from "./../../data/navigationItems"
+import menuItems from "./../../data/navigationItems";
 
 const StyeledNavigation = styled.div`
     .navigation {
         display: none;
-
-       
     }
 
-      
     @media (min-width: 800px){
         .navigation {
             display: block;
+
+            &__list {
+                display: flex;
+                gap: 1rem;
+            }
+            
+            &__item {
+                box-sizing: border-box;
+                cursor: pointer;
+                height: 6rem;
+                display: flex;
+                align-items: center;
+            }
+
+            &__item:hover {
+                box-shadow: 0 3px 0 0 var(--orange);
+                color: black;
+            }
         }
 
-        .navigation__item {
-            box-sizing: border-box;
-            cursor: pointer;
-            height: 6rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .navigation__item:hover {
-            box-shadow: inset 0 -4px 0 0 var(--orange);
-        }
+        
     }
 `
 

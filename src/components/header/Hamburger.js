@@ -1,24 +1,25 @@
 import styled from "styled-components";
-import Button from "./../reusable/button";
 import SliderMenu from "./SliderMenu";
 
 const StyledHamburger = styled.div`
+    margin-top: auto;
+    
     @media(min-width: 800px) {
         display: none;
     }
 `
 
 const Hamburger = (props) => {
-    const hamburgerClickHandler = () => {
+    const handleHamburgerClick = () => {
         props.setMenuActive(true);
         props.setOverlayActive(true);
     }
 
     return (
         <StyledHamburger>
-            <Button handleClick={hamburgerClickHandler}>
-                <img src="./../../../images/icon-menu.svg" alt="hamburger menu" />
-            </Button>
+            <button onClick={handleHamburgerClick}>
+                <img className="hamburger__img" src="./../../../images/icon-menu.svg" alt="hamburger menu" />
+            </button>
             <SliderMenu {...props} />
         </StyledHamburger>
     )

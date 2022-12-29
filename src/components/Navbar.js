@@ -19,22 +19,21 @@ const StyledNavbar = styled.div`
 
         &__user-avatar {
             height: 25px;
+            cursor: pointer;
         }
     }
 
     @media (min-width: 800px){
         margin-bottom: 4rem;
         border-bottom: 2px solid var(--grayish-blue);
-        padding: 0 1rem;
+        margin: 0 1rem;
+        padding: 0;
+
         .navbar {
             gap: 2rem;
 
-            &__hamburger-button {
-                display: none;
-            }
-
             &__user-avatar {
-                height: 50px;
+                height: 35px;
 
                 &:hover {
                     border: 3px solid var(--orange);

@@ -4,7 +4,8 @@ const StyledCartItem = styled.div`
     .cart-item {
         display: flex;
         justify-content: space-between;
-
+        gap: .5rem;
+        
         &__image {
             height: 3.5rem;
             border-radius: 5px;

@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 
 const StyledProductPrice = styled.div`
-        margin: 1.5rem;
-
         .add-to-cart__price-wrapper {
+            margin-bottom: 1rem;
             display: flex;
             width: 100%;
             gap: 1rem;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .price__main {
@@ -33,7 +33,7 @@ const StyledProductPrice = styled.div`
             text-underline-offset: -.3em;
             text-decoration-skip-ink: none;
         }
-
+/* 
         .add-to-cart__button {
             color: var(--white);
             background-color: var(--orange);
@@ -45,6 +45,12 @@ const StyledProductPrice = styled.div`
             box-shadow: 0 10px 10px var(--light-orange);
             width: 100%;
             font-size: 1rem
+        } */
+
+        @media (min-width: 800px) {
+            .price__previous {
+                flex-basis: 100%;
+            }
         }
     `
 

@@ -36,6 +36,7 @@ const StyledImageSliderFullScreen = styled.div`
 
             &:hover .image-slider__arrow--img {
                 filter: invert(52%) sepia(61%) saturate(1435%) hue-rotate(347deg) brightness(100%) contrast(101%);
+                
             }
         }
 

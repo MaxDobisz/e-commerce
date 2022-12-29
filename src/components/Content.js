@@ -6,10 +6,11 @@ import ImageSliderFullScreen from './content/ImageSliderFullScreen';
 
 const StyledContent = styled.main`
     @media (min-width: 800px) {
+        margin: 4rem 4rem 0;
         display: grid;
         grid-template-rows: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
-        column-gap: 10%;
+        column-gap: 15%;
     }
 `
 

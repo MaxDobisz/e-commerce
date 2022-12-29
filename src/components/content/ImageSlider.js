@@ -44,6 +44,7 @@ const StyledImageSlider = styled.div`
 
             &__main-img {
                 border-radius: 3%;
+                cursor: pointer;
             }
 
             &__thumbnails-list {
@@ -77,6 +78,7 @@ const StyledImageSlider = styled.div`
 
                     &:hover {
                         opacity: 0.4;
+                        
                     }
                 }
             }    
