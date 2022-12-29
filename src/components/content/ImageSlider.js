@@ -4,29 +4,28 @@ import imagesData from "../../data/images";
 
 const StyledImageSlider = styled.div`
     .image-slider {
-        position: relative; // potrzebne do strzalek
+        &__main-img-wrapper{
+            position: relative;
+        }
 
         &__arrow {
             background-color: white;
             border-radius: 50%;
-            margin: 0 1em;
             padding: 1em;
             position: absolute;
-            top: calc(50% - 1em);
+            top: 50%;
 
             &--previous {
                 left: 0;
                 padding-right: 1.2em;
+                transform: translate(50%,-50%);
             } 
 
             &--next {
                 right: 0;
                 padding-left: 1.2em;
+                transform: translate(-50%,-50%);
             } 
-
-            /* .imgae-slider__arrow--img {
-                height: 1rem ;
-            } */
         } 
 
         &__thumbnails-list {
@@ -37,9 +36,6 @@ const StyledImageSlider = styled.div`
     @media(min-width: 800px) {
         grid-row: 1/3;
         grid-column: 1/2;
-        
-        /* margin: 0 auto; */
-        /* width: 500px;  reacze nie potrzebuje tego bo grid mi trzyma rozmiar*/
         
         .image-slider {
             &__arrow {
@@ -88,8 +84,15 @@ const StyledImageSlider = styled.div`
     }
 `
 
-const ImageSlider = ({ handleMainImgClick }) => {
+const ImageSlider = (props) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    const handleMainImgClick = () => {
+        console.log(props)
+        props.setSliderActive(true)
+    }
+
+
     const handleArrowClick = nextImage => {
         setCurrentImageIndex(currentIndex => {
             const newIndex = currentIndex + nextImage;
@@ -114,13 +117,15 @@ const ImageSlider = ({ handleMainImgClick }) => {
     return (
         <StyledImageSlider>
             <div className="image-slider">
-                <button className="image-slider__arrow image-slider__arrow--previous" onClick={() => handleArrowClick(-1)}>
-                    <img className="imgae-slider__arrow--img" src='./../../../images/icon-previous.svg' alt="white/brownish trainers" />
-                </button>
-                <img className="image-slider__main-img" onClick={handleMainImgClick} src={imagesData[currentImageIndex].url} alt="white/brownish trainers" />
-                <button className="image-slider__arrow image-slider__arrow--next" onClick={() => handleArrowClick(1)}>
-                    <img className="image__arrow--img" src='./../../../images/icon-next.svg' alt="white/brownish trainers" />
-                </button>
+                <div className="image-slider__main-img-wrapper">
+                    <button className="image-slider__arrow image-slider__arrow--previous" onClick={() => handleArrowClick(-1)}>
+                        <img className="image-slider__arrow--img" src='./../../../images/icon-previous.svg' alt="white/brownish trainers" />
+                    </button>
+                    <img className="image-slider__main-img" onClick={handleMainImgClick} src={imagesData[currentImageIndex].url} alt="white/brownish trainers" />
+                    <button className="image-slider__arrow image-slider__arrow--next" onClick={() => handleArrowClick(1)}>
+                        <img className="image-slider__arrow--img" src='./../../../images/icon-next.svg' alt="white/brownish trainers" />
+                    </button>
+                </div>
                 <ul className="image-slider__thumbnails-list">
                     {thumbnails}
                 </ul>

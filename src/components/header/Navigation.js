@@ -5,11 +5,7 @@ const StyeledNavigation = styled.div`
     .navigation {
         display: none;
 
-        &__list {
-            
-            display: flex;
-            gap: 1rem;
-        }
+       
     }
 
       

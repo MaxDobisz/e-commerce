@@ -27,7 +27,6 @@ const StyledNavbar = styled.div`
         border-bottom: 2px solid var(--grayish-blue);
         padding: 0 1rem;
         .navbar {
-            
             gap: 2rem;
 
             &__hamburger-button {

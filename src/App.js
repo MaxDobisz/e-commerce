@@ -8,7 +8,7 @@ function App() {
   const [cartActive, setCartActive] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [counter, setCounter] = useState(0);
-
+  const [sliderActive, setSliderActive] = useState(false);
 
   return (
     <>
@@ -27,7 +27,8 @@ function App() {
         setCartItems={setCartItems}
         counter={counter}
         setCounter={setCounter}
-
+        sliderActive={sliderActive}
+        setSliderActive={setSliderActive}
       />
     </>
   );

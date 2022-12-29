@@ -1,10 +1,8 @@
 import AddToCart from './content/AddToCart';
-import PhotoSlider from './content/ImageSlider';
+import ImageSlider from './content/ImageSlider';
 import ProductDescription from './content/ProductDescription';
 import styled from 'styled-components';
 import ImageSliderFullScreen from './content/ImageSliderFullScreen';
-import { useState } from 'react';
-
 
 const StyledContent = styled.main`
     @media (min-width: 800px) {
@@ -16,14 +14,12 @@ const StyledContent = styled.main`
 `
 
 const Content = (props) => {
-    const [sliderActive, setSliderActive] = useState(true);
-
     return (
         <StyledContent>
-            {/* <PhotoSlider {...props} /> */}
-            {sliderActive && <ImageSliderFullScreen {...props} />}
-            {/* <ProductDescription />
-            <AddToCart {...props} /> */}
+            <ImageSlider {...props} />
+            {props.sliderActive && <ImageSliderFullScreen {...props} />}
+            <ProductDescription />
+            <AddToCart {...props} />
         </StyledContent>
     )
 }
