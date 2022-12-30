@@ -4,10 +4,11 @@ import menuItems from "../../data/navigationItems";
 
 const StyledSliderMenu = styled.div`
         .menu {
+            color: black;
             background-color: white;
             height: 100vh;
             left: -60%;
-            padding: 1rem;
+            padding: 1.8rem 1rem;
             position: fixed;
             top: 0vh;
             transition: 400ms ease;
@@ -61,7 +62,6 @@ const SliderMenu = (props) => {
     }
 
     const sliderRef = useClickOutside(props.setMenuActive);
-
 
     return (
         <StyledSliderMenu>

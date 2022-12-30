@@ -5,12 +5,12 @@ import styled from 'styled-components';
 import ImageSliderFullScreen from './content/ImageSliderFullScreen';
 
 const StyledContent = styled.main`
-    @media (min-width: 800px) {
+    @media (min-width: 769px) {
         margin: 4rem 4rem 0;
         display: grid;
         grid-template-rows: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
-        column-gap: 15%;
+        column-gap: 5%;
     }
 `
 

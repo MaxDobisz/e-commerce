@@ -52,10 +52,15 @@ const StyledCartList = styled.div`
             width: 100%;
         }
     }
-
-    @media (min-width: 800px) {
+    @media (min-width: 481px) {
         .cart-list {
-            width: 30%;
+            /* width: 35%; */
+        }
+    }
+
+    @media (min-width: 769px) {
+        .cart-list {
+            width: 35%;
         }
     }
 `

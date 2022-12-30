@@ -22,7 +22,7 @@ const StyledProductDescitpion = styled.div`
             line-height: 1.5em;
         }
 
-        @media(min-width: 800px) {
+        @media(min-width: 769px) {
            margin-top: auto;
         }
     `

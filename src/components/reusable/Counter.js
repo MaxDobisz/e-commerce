@@ -35,7 +35,7 @@ const StyledCounter = styled.div`
             font-size: 1rem;
         }
 
-    @media (min-width: 800px) {
+    @media (min-width: 769px) {
         flex-direction: row;
         .counter {
             flex-basis: 35%;

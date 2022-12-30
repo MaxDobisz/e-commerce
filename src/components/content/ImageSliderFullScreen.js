@@ -5,7 +5,7 @@ import ImageSlider from "./ImageSlider";
 const StyledImageSliderFullScreen = styled.div`
     display: none;
     
-    @media(min-width: 800px) {
+    @media(min-width: 769px) {
         position: fixed;
         top: 0;
         left: 0;

@@ -33,7 +33,7 @@ const StyledImageSlider = styled.div`
         }
     } 
 
-    @media(min-width: 800px) {
+    @media(min-width: 769px) {
         grid-row: 1/3;
         grid-column: 1/2;
         

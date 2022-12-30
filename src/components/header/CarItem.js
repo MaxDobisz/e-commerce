@@ -15,6 +15,7 @@ const StyledCartItem = styled.div`
             display: flex;
             flex-direction: column;
             justify-content: space-around;
+            margin-right: auto;
         }
 
         &__price-wrapper {

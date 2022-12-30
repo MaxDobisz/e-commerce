@@ -23,7 +23,7 @@ const StyledNavbar = styled.div`
         }
     }
 
-    @media (min-width: 800px){
+    @media (min-width: 769px){
         margin-bottom: 4rem;
         border-bottom: 2px solid var(--grayish-blue);
         margin: 0 1rem;

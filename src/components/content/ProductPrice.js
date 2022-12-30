@@ -15,7 +15,9 @@ const StyledProductPrice = styled.div`
             font-weight: 700;
             font-size: 1.7rem;
         }
-
+        p {
+            white-space: nowrap;
+        }
         .price__discount {
             color: var(--orange);
             font-weight: 700;
@@ -47,7 +49,7 @@ const StyledProductPrice = styled.div`
             font-size: 1rem
         } */
 
-        @media (min-width: 800px) {
+        @media (min-width: 769px) {
             .price__previous {
                 flex-basis: 100%;
             }

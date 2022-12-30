@@ -6,7 +6,7 @@ const StyeledNavigation = styled.div`
         display: none;
     }
 
-    @media (min-width: 800px){
+    @media (min-width: 769px){
         .navigation {
             display: block;
 

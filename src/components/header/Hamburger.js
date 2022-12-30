@@ -4,7 +4,7 @@ import SliderMenu from "./SliderMenu";
 const StyledHamburger = styled.div`
     margin-top: auto;
     
-    @media(min-width: 800px) {
+    @media(min-width: 769px) {
         display: none;
     }
 `
