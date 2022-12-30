@@ -4,7 +4,6 @@ const StyledCartItem = styled.div`
     .cart-item {
         display: flex;
         justify-content: space-between;
-        gap: .5rem;
         
         &__image {
             height: 3.5rem;
@@ -16,6 +15,7 @@ const StyledCartItem = styled.div`
             flex-direction: column;
             justify-content: space-around;
             margin-right: auto;
+            margin-left: 1rem;
         }
 
         &__price-wrapper {
@@ -26,8 +26,20 @@ const StyledCartItem = styled.div`
         &__total-price {
             font-weight: 800;
             color: black;
-        } 
+        }
+
+        &__delete {
+            width: 1rem;
+            margin-left: .5rem;
+        }
     }  
+
+
+    @media (min-width: 769px) {
+        .cart-item__description-wrapper {
+            margin-left: .3rem;
+        }
+    }
 `
 
 const CartItem = (props) => {
@@ -46,7 +58,7 @@ const CartItem = (props) => {
                         <p className='cart-item__total-price'> ${(props.item.price * props.item.amount).toFixed(2)}</p>
                     </div>
                 </div>
-                <button className="cart-item__checkout " onClick={() => handleDeleteClick(props.item.id)}>
+                <button className="cart-item__checkout" onClick={() => handleDeleteClick(props.item.id)}>
                     <img className='cart-item__delete' src="./../../../images/icon-delete.svg" alt="thumbnail" />
                 </button>
             </li>
