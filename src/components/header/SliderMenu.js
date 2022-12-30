@@ -50,7 +50,7 @@ const StyledSliderMenu = styled.div`
     `
 
 const SliderMenu = (props) => {
-    const renderMenuItems = menuItems.map(item => <li className="menu__item">{item}</li>);
+    const renderMenuItems = menuItems.map(item => <li key={item} className="menu__item">{item}</li>);
 
     const hamburgerClickHandler = () => {
         props.setMenuActive(false);

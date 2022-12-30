@@ -34,7 +34,7 @@ const StyeledNavigation = styled.div`
 `
 
 const Navigation = () => {
-    const navigationItems = menuItems.map(item => <li className="navigation__item"><p>{item}</p></li>);
+    const navigationItems = menuItems.map(item => <li key={item} className="navigation__item"><p>{item}</p></li>);
 
     return (
         <StyeledNavigation>

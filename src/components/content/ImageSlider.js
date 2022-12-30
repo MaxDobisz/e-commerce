@@ -108,7 +108,7 @@ const ImageSlider = (props) => {
     const handleThumbnailClick = index => setCurrentImageIndex(index);
     const thumbnails = imagesData.map(img => {
         return (
-            <li className={`image-slider__thumbnail ${imagesData.indexOf(img) === currentImageIndex ? 'image-slider__thumbnail--selected' : null}`}>
+            <li key={img.id} className={`image-slider__thumbnail ${imagesData.indexOf(img) === currentImageIndex ? 'image-slider__thumbnail--selected' : null}`}>
                 <button className="thumbnail__button" onClick={() => handleThumbnailClick(imagesData.indexOf(img))}>
                     <img className="thumbnail__image" src={img.url} alt="white/brownish trainers" />
                 </button>

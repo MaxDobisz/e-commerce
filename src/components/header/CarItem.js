@@ -34,7 +34,6 @@ const StyledCartItem = styled.div`
         }
     }  
 
-
     @media (min-width: 769px) {
         .cart-item__description-wrapper {
             margin-left: .3rem;
