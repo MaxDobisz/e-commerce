@@ -10,6 +10,8 @@ function App() {
   const [counter, setCounter] = useState(0);
   const [sliderActive, setSliderActive] = useState(false);
 
+
+  
   return (
     <>
       <Navbar

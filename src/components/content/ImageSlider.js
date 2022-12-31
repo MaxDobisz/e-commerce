@@ -78,7 +78,6 @@ const StyledImageSlider = styled.div`
 
                     &:hover {
                         opacity: 0.4;
-                        
                     }
                 }
             }    
@@ -90,7 +89,6 @@ const ImageSlider = (props) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const handleMainImgClick = () => {
-        console.log(props)
         props.setSliderActive(true)
     }
 
