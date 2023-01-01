@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { useContext } from "react";
+import DataContext from "../../context/DataContext"
 
 const StyledCounter = styled.div`
     display: flex;
@@ -46,7 +48,9 @@ const StyledCounter = styled.div`
     }
 `
 
-const Counter = ({ counter, setCounter, addToCartClickHandler }) => {
+const Counter = ({ addToCartClickHandler }) => {
+    const { counter, setCounter } = useContext(DataContext);
+
     const clickHandler = amount => {
         if (counter + amount >= 0) {
             setCounter(c => c + amount);

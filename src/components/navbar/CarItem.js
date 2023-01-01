@@ -1,4 +1,6 @@
 import styled from "styled-components"
+import { useContext } from "react";
+import DataContext from "../../context/DataContext";
 
 const StyledCartItem = styled.div`
     .cart-item {
@@ -41,23 +43,24 @@ const StyledCartItem = styled.div`
     }
 `
 
-const CartItem = (props) => {
+const CartItem = ({ item }) => {
+    const { setCartItems } = useContext(DataContext);
     const handleDeleteClick = (id) => {
-        props.setCartItems(items => items.filter(item => item.id !== id));
+        setCartItems(items => items.filter(item => item.id !== id));
     }
 
     return (
         <StyledCartItem>
-            <li className='cart-item' id={props.item.id}>
+            <li className='cart-item' id={item.id}>
                 <img className='cart-item__image' src="./../../../images/image-product-1-thumbnail.jpg" alt="thumbnail" />
                 <div className="cart-item__description-wrapper">
-                    <p>{props.item.name}</p>
+                    <p>{item.name}</p>
                     <div className='cart-item__price-wrapper'>
-                        <p>{` $${(props.item.price).toFixed(2)} x ${props.item.amount}`}</p>
-                        <p className='cart-item__total-price'> ${(props.item.price * props.item.amount).toFixed(2)}</p>
+                        <p>{` $${(item.price).toFixed(2)} x ${item.amount}`}</p>
+                        <p className='cart-item__total-price'> ${(item.price * item.amount).toFixed(2)}</p>
                     </div>
                 </div>
-                <button className="cart-item__checkout" onClick={() => handleDeleteClick(props.item.id)}>
+                <button className="cart-item__checkout" onClick={() => handleDeleteClick(item.id)}>
                     <img className='cart-item__delete' src="./../../../images/icon-delete.svg" alt="thumbnail" />
                 </button>
             </li>

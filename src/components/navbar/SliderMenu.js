@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import useClickOutside from "../../hooks/useClickOutside";
 import menuItems from "../../data/navigationItems";
+import { useContext } from "react";
+import DataContext from "../../context/DataContext";
 
 const StyledSliderMenu = styled.div`
         .menu {
@@ -49,23 +51,24 @@ const StyledSliderMenu = styled.div`
         }
     `
 
-const SliderMenu = (props) => {
+const SliderMenu = () => {
+    const { setMenuActive, setOverlayActive, menuActive, overlayActive } = useContext(DataContext)
     const renderMenuItems = menuItems.map(item => <li key={item} className="menu__item">{item}</li>);
 
     const hamburgerClickHandler = () => {
-        props.setMenuActive(false);
-        props.setOverlayActive(false);
+        setMenuActive(false);
+        setOverlayActive(false);
     }
 
     const overlayClickHandler = () => {
-        props.setOverlayActive(false);
+        setOverlayActive(false);
     }
 
-    const sliderRef = useClickOutside(props.setMenuActive);
+    const sliderRef = useClickOutside(setMenuActive);
 
     return (
         <StyledSliderMenu>
-            <nav className={`menu ${props.menuActive && 'menu--active'}`} ref={sliderRef}>
+            <nav className={`menu ${menuActive && 'menu--active'}`} ref={sliderRef}>
                 <button onClick={hamburgerClickHandler}>
                     <img src="./../../../images/icon-close.svg" alt="hamburger menu" />
                 </button>
@@ -73,7 +76,7 @@ const SliderMenu = (props) => {
                     {renderMenuItems}
                 </ul>
             </nav>
-            <div className={`overlay ${props.overlayActive ? 'overlay--active' : ''}`} onClick={overlayClickHandler}></div>
+            <div className={`overlay ${overlayActive ? 'overlay--active' : ''}`} onClick={overlayClickHandler}></div>
         </StyledSliderMenu>
     );
 }

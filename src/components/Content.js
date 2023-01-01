@@ -3,6 +3,9 @@ import ImageSlider from './content/ImageSlider';
 import ProductDescription from './content/ProductDescription';
 import styled from 'styled-components';
 import ImageSliderFullScreen from './content/ImageSliderFullScreen';
+import { useContext } from 'react';
+import DataContext from '../context/DataContext';
+
 
 const StyledContent = styled.main`
     @media (min-width: 769px) {
@@ -14,13 +17,15 @@ const StyledContent = styled.main`
     }
 `
 
-const Content = (props) => {
+const Content = () => {
+    const { sliderActive } = useContext(DataContext);
+
     return (
         <StyledContent>
-            <ImageSlider {...props} />
-            {props.sliderActive && <ImageSliderFullScreen {...props} />}
+            <ImageSlider />
+            {sliderActive && <ImageSliderFullScreen />}
             <ProductDescription />
-            <AddToCart {...props} />
+            <AddToCart />
         </StyledContent>
     )
 }

@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import useClickOutside from '../../hooks/useClickOutside';
 import CartItem from './CarItem';
+import { useContext } from "react";
+import DataContext from "../../context/DataContext"
 
 const StyledCartList = styled.div`
     .cart-list {
@@ -65,17 +67,18 @@ const StyledCartList = styled.div`
     }
 `
 
-const CartList = (props) => {
-    const nodeRef = useClickOutside(props.setCartActive, 'cart');
+const CartList = () => {
+    const { setCartActive, cartItems } = useContext(DataContext);
+    const nodeRef = useClickOutside(setCartActive, 'cart');
 
     const renderCartItems = () => {
-        if (props.cartItems.length === 0) {
+        if (cartItems.length === 0) {
             return <p className='cart-list__empty'>Your cart is empty</p>;
         } else {
             return (
                 <>
                     <ul className='cart-list__items'>
-                        {props.cartItems.map(item => <CartItem item={item}  {...props} />)}
+                        {cartItems.map(item => <CartItem item={item} />)}
                     </ul>
                     <button className='cart-list__checkout'>Checkout</button>
                 </>

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
 import imagesData from "../../data/images";
+import { useContext } from "react";
+import DataContext from "../../context/DataContext"
 
 const StyledImageSlider = styled.div`
     .image-slider {
@@ -85,13 +87,13 @@ const StyledImageSlider = styled.div`
     }
 `
 
-const ImageSlider = (props) => {
+const ImageSlider = () => {
+    const { setSliderActive } = useContext(DataContext);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const handleMainImgClick = () => {
-        props.setSliderActive(true)
+        setSliderActive(true);
     }
-
 
     const handleArrowClick = nextImage => {
         setCurrentImageIndex(currentIndex => {
@@ -103,6 +105,7 @@ const ImageSlider = (props) => {
             return newIndex;
         });
     };
+
     const handleThumbnailClick = index => setCurrentImageIndex(index);
     const thumbnails = imagesData.map(img => {
         return (

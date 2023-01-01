@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Navigation from "./header/Navigation";
-import Hamburger from "./header/Hamburger";
-import Cart from "./header/Cart";
+import Navigation from "./navbar/Navigation";
+import Hamburger from "./navbar/Hamburger";
+import Cart from "./navbar/Cart";
 
 const StyledNavbar = styled.div`
     position: relative;
@@ -44,14 +44,14 @@ const StyledNavbar = styled.div`
     }
 `
 
-const Navbar = (props) => {
+const Navbar = () => {
     return (
         <StyledNavbar>
             <div className="navbar">
-                <Hamburger {...props} />
+                <Hamburger />
                 <img className="navbar__logo" src="./../../../images/logo.svg" alt="logo" />
                 <Navigation />
-                <Cart {...props} />
+                <Cart />
                 <img className="navbar__user-avatar" src="./../../../images/image-avatar.png" alt="user avatar" />
             </div>
         </StyledNavbar>

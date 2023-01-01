@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 import Counter from '../reusable/Counter';
 import ProductPrice from './ProductPrice';
+import { useContext } from "react";
+import DataContext from "../../context/DataContext"
 
 const StyledAddToCart = styled.div`
         margin: 1.5rem;
     `
 
-const AddToCart = ({ cartItems, setCartItems, counter, setCounter }) => {
+const AddToCart = () => {
+    const { cartItems, setCartItems, counter, setCounter } = useContext(DataContext);
+
     const addToCartClickHandler = () => {
         setCounter(0);
 
@@ -23,7 +27,7 @@ const AddToCart = ({ cartItems, setCartItems, counter, setCounter }) => {
     return (
         <StyledAddToCart>
             <ProductPrice />
-            <Counter counter={counter} setCounter={setCounter} addToCartClickHandler={addToCartClickHandler} />
+            <Counter addToCartClickHandler={addToCartClickHandler} />
         </StyledAddToCart>
     )
 }

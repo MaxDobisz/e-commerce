@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 const StyledProductPrice = styled.div`
         .add-to-cart__price-wrapper {
             margin-bottom: 1rem;

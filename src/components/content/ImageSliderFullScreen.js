@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import useClickOutside from "../../hooks/useClickOutside";
 import ImageSlider from "./ImageSlider";
+import { useContext } from "react";
+import DataContext from "../../context/DataContext";
 
 const StyledImageSliderFullScreen = styled.div`
     display: none;
@@ -62,8 +64,9 @@ const StyledImageSliderFullScreen = styled.div`
     }
 `
 const ImageSliderFullScreen = (props) => {
-    const nodeRef = useClickOutside(props.setSliderActive, 'cart');
-    const handleCloseButtonClick = () => props.setSliderActive(false);
+    const { setSliderActive } = useContext(DataContext);
+    const nodeRef = useClickOutside(setSliderActive, 'cart');
+    const handleCloseButtonClick = () => setSliderActive(false);
 
     return (
         <StyledImageSliderFullScreen>

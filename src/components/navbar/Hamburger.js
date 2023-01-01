@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import SliderMenu from "./SliderMenu";
+import { useContext } from "react";
+import DataContext from "../../context/DataContext";
 
 const StyledHamburger = styled.div`
     margin-top: auto;
@@ -9,10 +11,11 @@ const StyledHamburger = styled.div`
     }
 `
 
-const Hamburger = (props) => {
+const Hamburger = () => {
+    const { setMenuActive, setOverlayActive } = useContext(DataContext)
     const handleHamburgerClick = () => {
-        props.setMenuActive(true);
-        props.setOverlayActive(true);
+        setMenuActive(true);
+        setOverlayActive(true);
     }
 
     return (
@@ -20,7 +23,7 @@ const Hamburger = (props) => {
             <button onClick={handleHamburgerClick}>
                 <img className="hamburger__img" src="./../../../images/icon-menu.svg" alt="hamburger menu" />
             </button>
-            <SliderMenu {...props} />
+            <SliderMenu />
         </StyledHamburger>
     )
 }

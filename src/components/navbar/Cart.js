@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import CartList from './CartList';
+import { useContext } from 'react';
+import DataContext from '../../context/DataContext';
 
 const StyledCart = styled.div`
     margin-left: auto;
@@ -20,9 +22,11 @@ const StyledCart = styled.div`
     }   
 `
 
-const Cart = (props) => {
+const Cart = () => {
+    const { setCartActive, cartItems, cartActive } = useContext(DataContext)
+
     const cartClickHandler = () => {
-        props.setCartActive(cartActive => !cartActive)
+        setCartActive(cartActive => !cartActive)
     }
 
     return (
@@ -30,9 +34,9 @@ const Cart = (props) => {
             <div className="cart">
                 <button className='cart__button' onClick={cartClickHandler}>
                     <img className='cart__icon' src="./../../../images/icon-cart.svg" alt="cart" />
-                    {props.cartItems.length !== 0 ? <p className="cart__items-indiactor">{props.cartItems.length}</p> : null}
+                    {cartItems.length !== 0 ? <p className="cart__items-indiactor">{cartItems.length}</p> : null}
                 </button>
-                {props.cartActive ? <CartList {...props} /> : null}
+                {cartActive ? <CartList /> : null}
             </div>
         </StyledCart>
     )
