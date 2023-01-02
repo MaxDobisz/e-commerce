@@ -78,7 +78,7 @@ const CartList = () => {
             return (
                 <>
                     <ul className='cart-list__items'>
-                        {cartItems.map(item => <CartItem item={item} />)}
+                        {cartItems.map(item => <CartItem key={item.id} item={item} />)}
                     </ul>
                     <button className='cart-list__checkout'>Checkout</button>
                 </>

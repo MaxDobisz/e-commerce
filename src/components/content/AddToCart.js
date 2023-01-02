@@ -3,6 +3,7 @@ import Counter from '../reusable/Counter';
 import ProductPrice from './ProductPrice';
 import { useContext } from "react";
 import DataContext from "../../context/DataContext"
+import uuid from 'react-uuid';
 
 const StyledAddToCart = styled.div`
         margin: 1.5rem;
@@ -19,7 +20,7 @@ const AddToCart = () => {
                 name: 'Fall Limited Edition Sneakers',
                 price: 125,
                 amount: counter,
-                id: cartItems.length + 1
+                id: uuid()
             }]);
         }
     }
