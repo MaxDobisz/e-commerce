@@ -1,13 +1,15 @@
 import styled from 'styled-components';
+import { useContext } from "react";
+import uuid from 'react-uuid';
 import Counter from '../reusable/Counter';
 import ProductPrice from './ProductPrice';
-import { useContext } from "react";
 import DataContext from "../../context/DataContext"
-import uuid from 'react-uuid';
 
 const StyledAddToCart = styled.div`
+    .add-to-cart {
         margin: 1.5rem;
-    `
+    }
+`
 
 const AddToCart = () => {
     const { cartItems, setCartItems, counter, setCounter } = useContext(DataContext);
@@ -27,8 +29,10 @@ const AddToCart = () => {
 
     return (
         <StyledAddToCart>
-            <ProductPrice />
-            <Counter addToCartClickHandler={addToCartClickHandler} />
+            <div className="add-to-cart">
+                <ProductPrice />
+                <Counter addToCartClickHandler={addToCartClickHandler} />
+            </div>
         </StyledAddToCart>
     )
 }

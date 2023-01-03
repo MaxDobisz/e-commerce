@@ -1,7 +1,6 @@
-import { useState } from "react";
 import styled from "styled-components";
+import { useState, useContext } from "react";
 import imagesData from "../../data/images";
-import { useContext } from "react";
 import DataContext from "../../context/DataContext"
 
 const StyledImageSlider = styled.div`
@@ -24,8 +23,8 @@ const StyledImageSlider = styled.div`
             } 
 
             &--next {
-                right: 0;
                 padding-left: 1.2em;
+                right: 0;
                 transform: translate(-50%,-50%);
             } 
         } 
@@ -36,8 +35,8 @@ const StyledImageSlider = styled.div`
     } 
 
     @media(min-width: 769px) {
-        grid-row: 1/3;
         grid-column: 1/2;
+        grid-row: 1/3;
         
         .image-slider {
             &__arrow {
@@ -45,7 +44,7 @@ const StyledImageSlider = styled.div`
             }
 
             &__main-img {
-                border-radius: 3%;
+                border-radius: 10px;
                 cursor: pointer;
             }
 
@@ -57,12 +56,12 @@ const StyledImageSlider = styled.div`
 
             &__thumbnail {
                 background-color: white;
-                width: 20%;
-                border-radius: 10%;
+                border-radius: 10px;
                 overflow: hidden;
+                width: 20%;
                 
                 &--selected {
-                    border-radius: 10%;
+                    border-radius: 10px;
                     box-shadow: 0 0 0 3px var(--orange);
                     
                     .thumbnail__image {
@@ -75,7 +74,7 @@ const StyledImageSlider = styled.div`
                 }
 
                 .thumbnail__image {
-                    border-radius: 10%;
+                    border-radius: 10px;
                     z-index: 4;
 
                     &:hover {
