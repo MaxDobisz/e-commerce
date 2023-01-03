@@ -4,8 +4,8 @@ import Hamburger from "./navbar/Hamburger";
 import Cart from "./navbar/Cart";
 
 const StyledNavbar = styled.div`
-    position: relative;
     padding: 1.5rem 1rem;
+    position: relative;
 
     .navbar {
         align-items: center;
@@ -18,14 +18,14 @@ const StyledNavbar = styled.div`
         }
 
         &__user-avatar {
-            height: 25px;
             cursor: pointer;
+            height: 25px;
         }
     }
 
     @media (min-width: 769px){
-        margin-bottom: 4rem;
         border-bottom: 2px solid var(--grayish-blue);
+        margin-bottom: 4rem;
         margin: 0 1rem;
         padding: 0;
 
@@ -36,8 +36,8 @@ const StyledNavbar = styled.div`
                 height: 35px;
 
                 &:hover {
-                    border: 3px solid var(--orange);
                     border-radius: 25px;
+                    border: 3px solid var(--orange);
                 }
             }
         }
@@ -47,15 +47,15 @@ const StyledNavbar = styled.div`
 const Navbar = () => {
     return (
         <StyledNavbar>
-            <div className="navbar">
+            <header className="navbar">
                 <Hamburger />
                 <img className="navbar__logo" src="./../../../images/logo.svg" alt="logo" />
                 <Navigation />
                 <Cart />
                 <img className="navbar__user-avatar" src="./../../../images/image-avatar.png" alt="user avatar" />
-            </div>
+            </header>
         </StyledNavbar>
-    )
+    );
 }
 
 export default Navbar;

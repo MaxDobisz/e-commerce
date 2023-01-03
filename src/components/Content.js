@@ -1,19 +1,20 @@
+import { useContext } from 'react';
+import styled from 'styled-components';
 import AddToCart from './content/AddToCart';
 import ImageSlider from './content/ImageSlider';
 import ProductDescription from './content/ProductDescription';
-import styled from 'styled-components';
 import ImageSliderFullScreen from './content/ImageSliderFullScreen';
-import { useContext } from 'react';
 import DataContext from '../context/DataContext';
 
-
-const StyledContent = styled.main`
+const StyledContent = styled.div`
     @media (min-width: 769px) {
-        margin: 4rem 4rem 0;
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-        column-gap: 5%;
+        .content {
+            column-gap: 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            margin: 4rem 4rem 0;
+        }
     }
 `
 
@@ -22,12 +23,14 @@ const Content = () => {
 
     return (
         <StyledContent>
-            <ImageSlider />
-            {sliderActive && <ImageSliderFullScreen />}
-            <ProductDescription />
-            <AddToCart />
+            <main className='content'>
+                <ImageSlider />
+                {sliderActive && <ImageSliderFullScreen />}
+                <ProductDescription />
+                <AddToCart />
+            </main>
         </StyledContent>
-    )
+    );
 }
 
 export default Content;
