@@ -30,7 +30,7 @@ Users should be able to:
 - Live Site URL: [https://e-commerce-maxdobisz.vercel.app/](https://e-commerce-maxdobisz.vercel.app/)
 
 ## My process
-The design consisted of a mobile and a desktop view. I implemented a responsive design using a single breakpoint following the design at a minimum width of 481px. In general, I prefer to use more breakpoints for a better visual appearance on different screen sizes.
+The design consisted of a mobile and a desktop view. I implemented a responsive design using a single breakpoint following the design at a minimum width of 769px. In general, I prefer to use more breakpoints for a better visual appearance on different screen sizes.
 
 For styling, I utilized React's styled components library, which offers a wide range of possibilities for larger projects. CSS properties were organized alphabetically, and I followed the BEM methodology for naming classes.
 
