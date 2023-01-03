@@ -16,11 +16,13 @@ Users should be able to:
 - View the cart and remove items from it
 
 ### Screenshot
-<img src="./public/screenshots/screenshot-dt.png">
-<img src="./public/screenshots/screenshot-slider.png">
-<img src="./public/screenshots/screenshot-mob.png" style="width: 30%">
-<img src="./public/screenshots/screenshot-mob-crtact.png" style="width: 30%">
-<img src="./public/screenshots/screenshot-mob-sldact.png" style="width: 30%">
+<div align="center">
+  <img src="./public/screenshots/screenshot-dt.png">
+  <img src="./public/screenshots/screenshot-slider.png">
+  <img src="./public/screenshots/screenshot-mob.png" style="width: 30%">
+  <img src="./public/screenshots/screenshot-mob-crtact.png" style="width: 30%">
+  <img src="./public/screenshots/screenshot-mob-sldact.png" style="width: 30%">
+</div>
 
 ### Links
 
