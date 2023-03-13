@@ -27,7 +27,6 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://e-commerce-maxdobisz.vercel.app/](https://e-commerce-maxdobisz.vercel.app/)
-- Live Site URL: [https://www.frontendmentor.io/solutions/ecommerce-product-page-oOB8CijPVk](https://www.frontendmentor.io/solutions/ecommerce-product-page-oOB8CijPVk)
 
 ## My process
 The design consisted of a mobile and a desktop view. I implemented a responsive design using a single breakpoint following the design at a minimum width of 769px. In general, I prefer to use more breakpoints for a better visual appearance on different screen sizes.
